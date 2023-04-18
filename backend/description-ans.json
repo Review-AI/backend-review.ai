@@ -1,0 +1,10 @@
+[
+    {
+      "message": {
+        "role": "assistant",
+        content: 'The product is a circular screen watch with various features such as fitness tracking, texting, and the ability to download backgrounds. It has a long battery life and is easy to use with the help of the app. The watch is lightweight and looks cute with bracelets. It is highly recommended and has received a 10/10 rating.'
+      },
+      finish_reason: 'stop',
+      index: 0
+    }
+  ]

@@ -1,0 +1,22 @@
+Number of reviews:298
+[
+  {
+    message: {
+      role: 'assistant',
+      content: 'This is a 40-ounce water bottle that keeps water cold and has a sturdy latch. It comes with a variety of attachments and a 
+lock feature on the lid. It is easy to use and clean, but some users experienced leaks after a few months of use. Overall, it is a great product with excellent customer service.'
+    },
+    finish_reason: 'stop',
+    index: 0
+  }
+]
+[
+  {
+    message: {
+      role: 'assistant',
+      content: 'There are mixed reviews about the bottle leaking. Some users have reported that the bottle started leaking after a few months of use, while others have not experienced any leaks. It is possible that the leaking issue may be due to a defective product or improper use. It is recommended to use the bottle as per the instructions provided and to contact the manufacturer if there are any issues.'       
+    },
+    finish_reason: 'stop',
+    index: 0
+  }
+]
