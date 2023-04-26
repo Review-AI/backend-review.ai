@@ -2,6 +2,9 @@
   "dependencies": {
     "amazon-asin-scraper": "^1.0.8",
     "amazon-buddy": "^2.2.45",
+    "amazon-product-api": "^0.4.4",
+    "amazon-product-reviews-scraper": "^1.0.1",
+    "langchain": "^0.0.63",
     "openai": "^3.2.1"
   }
 }
