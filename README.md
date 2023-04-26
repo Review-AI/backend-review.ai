@@ -1,8 +1,8 @@
 # backend-review.ai
 
-Javascript: <br/>
+<b>Javascript:</b> <br/>
 integration.js
 
-Python: <br/>
+<b>Python:</b> <br/>
 llm.py <br/>
 llm-summary.py
