@@ -1,23 +1,13 @@
-from langchain.embeddings.openai import OpenAIEmbeddings
-from langchain.text_splitter import CharacterTextSplitter
-from langchain import OpenAI, VectorDBQA
+from langchain.document_loaders import UnstructuredFileLoader
+from langchain.chains.summarize import load_summarize_chain
+from langchain.chains.question_answering import load_qa_chain
 import re
-from langchain.document_loaders import DirectoryLoader
+from langchain.text_splitter import CharacterTextSplitter
 from langchain.docstore.document import Document
+from langchain import OpenAI
 
-
-# loader = DirectoryLoader('./data/PaulGrahamEssaySmall/', glob='**/*.txt')
-# documents = loader.load()
-# print(len(documents))
-# text_splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=0)
-# texts = text_splitter.split_documents(documents)
-# print(len(texts))
-# text_full = ""
-# for text in texts:
-#     text_full += text.page_content
-# print(text_full)
-# print(len(text_full))
-# print(len(re. findall(r'\w+', text_full)))
+#sm_loader = UnstructuredFileLoader("./data/muir_lake_tahoe_in_winter.txt")
+#sm_doc = sm_loader.load()
 
 reviews = """
 The first time I purchased a double wall SS water bottle, I went for the expensive name brand but ever since I discovered 
@@ -62,23 +52,41 @@ doc_rew = Document(page_content=reviews)
 text_splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=0, separator="\n")
 #texts2 = text_splitter2.create_documents([reviews])
 texts = text_splitter.split_documents([doc_rew])
-print("After splitting")
-print(len(texts))
 
-embeddings = OpenAIEmbeddings(openai_api_key = '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')
+def doc_summary(docs):
+    print (f'You have {len(docs)} document(s)')
+    
+    num_words = sum([len(doc.page_content.split(' ')) for doc in docs])
+    
+    print (f'You have roughly {num_words} words in your docs')
+    print ()
+    print (f'Preview: \n{docs[0].page_content.split(". ")[0]}')
 
-from langchain.vectorstores import FAISS
+doc_summary(texts)
 
+llm = OpenAI(openai_api_key='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')
 
-docsearch = FAISS.from_documents(texts, embeddings)
-print(docsearch)
-qa = VectorDBQA.from_chain_type(llm=OpenAI(openai_api_key = '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', verbose= True), chain_type="stuff", vectorstore=docsearch)
+#chain = load_summarize_chain(llm, chain_type="stuff", verbose=True)
+#chain.run(texts)
 
-query = "Provide a summary of the product in 50 words"
-print(qa.run(query))
+#chain = load_summarize_chain(llm, chain_type="map_reduce", verbose=True)
+#print(chain.run(texts)) # 1.5 min
+# The customer purchased a 64oz green/teal Hydro Cell water bottle and was pleased with the design, color, size, and sport mouthpiece. After experiencing a dent and rattling sound, customer service sent a replacement lid without questions asked. It is of the same quality as a name-brand product, but much more affordable, and is available in multiple colors and sizes with two lids and a straw. Highly recommended.   
 
-query = "Does the bottle leak?"
-print(qa.run(query))
+# Summarize refine
+# chain = load_summarize_chain(llm, chain_type="refine", verbose=True)
+# print(chain.run(texts[:5]))
 
-query = "Is the bottle heavy to carry?"
-print(qa.run(query))
+# Map re-rank
+chain = load_qa_chain(llm, chain_type="map_rerank", return_intermediate_steps=True)
+query = "Provide the summary of the product in 50 words"
+
+try:
+    result = chain({"input_documents": texts, "question": query}, return_only_outputs=True)
+except ValueError as e:
+    result = str(e)
+    if not result.startswith("Could not parse output: "):
+        raise e
+    result = result.removeprefix("Could not parse output: ").removesuffix("`")
+
+print(result)  # min 40 min
