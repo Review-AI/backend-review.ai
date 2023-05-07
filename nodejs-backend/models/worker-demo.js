@@ -12,7 +12,7 @@ let totalPages = 50;
 // Function to fetch data from a single page
 async function fetchPage(pageNum, callback) {
     
-  const reviews = await _reviews({ asin: "B08FWGZB8Q", bulk: false, page: pageNum, randomUa: true });
+  const reviews = await _reviews({ asin: "B07PXGQC1Q", bulk: false, page: pageNum, randomUa: true });
   // console.log(reviews)
   callback(null, reviews.result)
 //   const url = `${baseUrl}?page=${pageNum}`;
@@ -30,7 +30,7 @@ async function fetchPage(pageNum, callback) {
 }
 
 (async () => {
-  const product_by_asin = await asin({ asin: 'B08FWGZB8Q' });
+  const product_by_asin = await asin({ asin: 'B07PXGQC1Q' });
   console.log(product_by_asin.result[0].reviews)
   
 })();
