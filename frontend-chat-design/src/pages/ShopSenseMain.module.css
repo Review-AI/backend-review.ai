@@ -1,0 +1,356 @@
+.iphone1420Child {
+  position: absolute;
+  top: 300px;
+  left: 9px;
+  border-radius: 30px;
+  width: 202px;
+  height: 39px;
+}
+.iphone1420Item {
+  top: 0;
+  left: 0;
+  border-radius: 0 0 var(--br-31xl) var(--br-31xl);
+  background-color: var(--color-darkslategray-200);
+  width: 72vh;
+  height: 10vh;
+}
+.summary {
+  margin: 0;
+}
+.bestSellingBottles {
+  margin: 0;
+  font-size: var(--font-size-mini);
+  color: #393939;
+}
+.summaryBestSellingContainer {
+  position: absolute;
+  top: 97px;
+  left: 225px;
+  display: inline-block;
+  width: 235px;
+  height: 274px;
+  font-size: var(--font-size-xl);
+  color: #000;
+}
+.catchyPhraseTo {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.catchyPhraseToIntroduceWrapper {
+  position: absolute;
+  bottom: 462px;
+  left: 35px;
+  border-radius: var(--br-xs);
+  width: 53px;
+  height: 33px;
+  font-size: var(--font-size-9xl);
+  color: var(--color-gray-100);
+  font-family: var(--font-abeezee);
+}
+.iphone1420Inner {
+  position: absolute;
+  top: 557px;
+  left: 0;
+  border-radius: var(--br-31xl) var(--br-31xl) 0 0;
+  background-color: var(--color-darkslategray-200);
+  width: 483px;
+  height: 546px;
+}
+.typeAMessage {
+  position: absolute;
+  top: 11px;
+  left: 6px;
+  line-height: 20px;
+}
+.input {
+  position: absolute;
+  top: 1029px;
+  left: 35px;
+  border-radius: var(--br-xs);
+  background-color: var(--color-white);
+  width: 364px;
+  height: 44px;
+  font-size: var(--font-size-xl);
+  color: var(--color-gray-200);
+}
+.wed821Am {
+  position: absolute;
+  top: 4px;
+  left: 168px;
+  line-height: 16px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 77px;
+}
+.messageFromBot {
+  position: absolute;
+  top: 102px;
+  left: 0;
+  width: 413px;
+  height: 24px;
+  text-align: center;
+  font-size: var(--font-size-xs);
+}
+.messageChild {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 32px;
+  height: 32px;
+}
+.helloImReview {
+  position: absolute;
+  top: 16px;
+  left: 15px;
+  line-height: 24px;
+  display: inline-block;
+  width: 267px;
+}
+.message,
+.message1,
+.textBox {
+  position: absolute;
+  height: 104px;
+}
+.textBox {
+  top: 0;
+  left: 42px;
+  border-radius: 0 var(--br-5xl) var(--br-5xl) var(--br-5xl);
+  background-color: var(--color-white);
+  width: 297px;
+}
+.message,
+.message1 {
+  top: 136px;
+  left: 2px;
+  width: 389px;
+  color: var(--color-darkslategray-100);
+}
+.message1 {
+  top: 326px;
+}
+.isThisBottle {
+  position: absolute;
+  top: 16px;
+  left: 15px;
+  line-height: 24px;
+  font-weight: 500;
+}
+.myMessage {
+  position: absolute;
+  top: 255px;
+  left: 226px;
+  border-radius: var(--br-5xl) var(--br-5xl) 0 var(--br-5xl);
+  background-color: var(--color-slateblue);
+  width: 222px;
+  height: 56px;
+  text-align: center;
+}
+.askYourDoubts {
+  position: absolute;
+  top: 50px;
+  left: 22px;
+  font-size: var(--font-size-5xl);
+}
+.child {
+  position: absolute;
+  top: 86.5px;
+  left: -24.5px;
+  border-top: 1px solid var(--color-white);
+  box-sizing: border-box;
+  width: 483px;
+  height: 1px;
+}
+.div,
+.ellipseIcon,
+.groupIcon {
+  position: absolute;
+  overflow: hidden;
+}
+.div {
+  top: 526px;
+  left: 15px;
+  width: 463px;
+  height: 450px;
+  font-size: var(--font-size-base);
+}
+.ellipseIcon,
+.groupIcon {
+  height: 3.81%;
+  width: 8.7%;
+  top: 93.29%;
+  right: 5.18%;
+  bottom: 2.9%;
+  left: 86.13%;
+  max-width: 100%;
+  max-height: 100%;
+}
+.groupIcon {
+  height: 1.81%;
+  width: 4.14%;
+  top: 94.29%;
+  right: 7.45%;
+  bottom: 3.9%;
+  left: 88.41%;
+}
+.image13Icon,
+.screenshot20230511At103 {
+  position: absolute;
+  top: 11px;
+  left: 169px;
+  width: 207px;
+  height: 57px;
+  object-fit: cover;
+}
+.image13Icon {
+  top: 3px;
+  left: 427px;
+  width: 54px;
+  height: 59px;
+}
+.a7vnwpatl1Icon,
+.iphone1420Child1 {
+  position: absolute;
+  top: 97px;
+  left: 11px;
+  width: 195px;
+  height: 187px;
+}
+.a7vnwpatl1Icon {
+  top: 102px;
+  left: 20px;
+  border-radius: var(--br-81xl);
+  width: 177px;
+  height: 168px;
+  object-fit: cover;
+}
+.likedTheProduct,
+.productComplaints,
+.totalReviews {
+  position: absolute;
+  top: 491px;
+  left: 59px;
+  display: inline-block;
+  color: var(--color-mediumseagreen);
+  width: 98px;
+  height: 25px;
+}
+.likedTheProduct,
+.productComplaints {
+  left: 177px;
+  color: var(--color-salmon);
+  width: 130px;
+}
+.productComplaints {
+  left: 320px;
+  font-size: 14px;
+  color: var(--color-darkorange);
+  width: 144px;
+  height: 20px;
+}
+.backgroundIcon,
+.type1Icon {
+  position: absolute;
+  top: 408px;
+  left: 66px;
+  width: 80px;
+  height: 79px;
+}
+.backgroundIcon {
+  top: -5px;
+  left: 117px;
+}
+.div1 {
+  top: 24px;
+  left: 134px;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46.78px;
+  height: 20.7px;
+}
+.div1,
+.k,
+.type2 {
+  position: absolute;
+}
+.k {
+  top: 23px;
+  left: 0;
+  font-weight: 900;
+  color: var(--color-mediumseagreen);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46.78px;
+  height: 20.7px;
+}
+.type2 {
+  top: 413px;
+  left: 83px;
+  width: 192px;
+  height: 69px;
+  text-align: center;
+  color: var(--color-tomato);
+  font-family: var(--font-nunito);
+}
+.backgroundIcon2,
+.div2 {
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  width: 80px;
+  height: 79px;
+}
+.div2 {
+  top: 24px;
+  left: 12px;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46.78px;
+  height: 20.7px;
+}
+.borosilBottle,
+.type3 {
+  position: absolute;
+  text-align: center;
+}
+.type3 {
+  top: 412px;
+  left: 347px;
+  width: 70px;
+  height: 69px;
+  color: var(--color-darkorange);
+  font-family: var(--font-nunito);
+}
+.borosilBottle {
+  top: 306px;
+  left: 47px;
+  font-size: var(--font-size-xl);
+}
+.image23Icon {
+  position: absolute;
+  top: 11px;
+  left: 107px;
+  border-radius: 10px;
+  width: 50px;
+  height: 54px;
+  object-fit: cover;
+}
+.iphone1420 {
+  position: relative;
+  background-color: var(--color-white);
+  width: 100%;
+  height: 1103px;
+  overflow: hidden;
+  text-align: left;
+  font-size: var(--font-size-mini);
+  color: var(--color-white);
+  font-family: var(--font-dm-sans);
+}
