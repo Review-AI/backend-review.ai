@@ -1,6 +1,5 @@
 import styles from "./ShopSenseMain.module.css";
 import { useEffect, useState } from 'react';
-import CircularProgressCustom from "../components/CircularProgressCustom"
 import axios from 'axios';
 import moment from 'moment';
 import { v4 as uuidv4 } from 'uuid';
@@ -10,6 +9,7 @@ import {Divider} from "@mui/material";
 import bot from '../assets/bot.png'
 import JumpingDotCustom from "../components/JumpingDots/JumpingDotCustom";
 import ProductDescription from "../components/ProductDescription";
+import Batches from "../components/Batches";
 import Header from "../components/Header";
 
 const ShopSenseMain = () => {
@@ -51,7 +51,7 @@ const ShopSenseMain = () => {
 		console.log(data)
 
     setProductImg(data.product_img)
-    setTotalReviews(data.total)
+    setTotalReviews(data.total_reviews)
 
 		let corpus = data.reviews.map(ele=> {return ele.review }).join(".\n ")
 		let desc =  await axios.post(`${python_base_url}/predict/get_product_description`, {"clientID": clientID, "reviews": corpus})
@@ -79,27 +79,14 @@ const ShopSenseMain = () => {
   return (
     <div style={{display:"flex", flexDirection:"column", height:"100vh", overflow:"hidden"}}>
         <Header />
-        <ProductDescription />
-
-        <div style={{display:"flex" , width: "483px", justifyContent:"space-evenly"}}>
-            <div style={{display:"flex", flexDirection:"column"}}>
-                <CircularProgressCustom />
-                <span className={styles.batch}>Total Reviews</span>
-            </div>
-             <div style={{display:"flex", flexDirection:"column"}}>
-                <CircularProgressCustom />
-                <span className={styles.batch}>Total Reviews</span>
-            </div>
-             <div style={{display:"flex", flexDirection:"column"}}>
-                <CircularProgressCustom />
-                <span className={styles.batch}>Total Reviews</span>
-            </div>
-        </div>
+        <ProductDescription productImg={productImg} productDesc={productDesc}/>
+        <Batches totalReviews={totalReviews} />
+        
         <div className={styles.chatbot}>
             <div className={styles.chatbotTitle}>Ask your Doubts</div>
             <Divider color={"white"} style={{margin:"5px 10px"}}/>
             <div style={{flexGrow:1, display:"flex", flexDirection:"column", position: "relative"}}>
-                <div style={{height:"80%", overflow: "scroll", position: "absolute", width:"100%"}}>
+                <div style={{height:"80%", overflowY: "scroll", position: "absolute", width:"100%"}}>
                     <div className={styles.chatTime}>{today[new Date().getDay()]}, {moment(new Date()).format("hh:mm A")}</div>
                     <div style={{display: "flex"}}>
                         <div className={styles.botIcon}><img src={bot} style={{height:"21px", width:"auto"}}/></div>
