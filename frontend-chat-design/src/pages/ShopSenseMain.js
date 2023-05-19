@@ -8,8 +8,9 @@ import {node_base_url, python_base_url} from '../utils/Routes'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import {Divider} from "@mui/material";
 import bot from '../assets/bot.png'
-import MenuItemCustom from "../components/MenuItemCustom"
 import JumpingDotCustom from "../components/JumpingDots/JumpingDotCustom";
+import ProductDescription from "../components/ProductDescription";
+import Header from "../components/Header";
 
 const ShopSenseMain = () => {
   const [amazonLink, setAmazonLink] = useState("https://www.amazon.in/Fossil-Smartwatch-stainless-Bluetooth-calling/dp/B08FWGZB8Q/ref=sr_1_1?pf_rd_i=2563505031&pf_rd_m=A1VBAL9TL5WCBF&pf_rd_p=22a2aad2-37a9-4d94-8d6b-c94d479eac2e&pf_rd_r=3537M7ZRZMVECT8KWQH6&pf_rd_s=merchandised-search-10&qid=1681499073&refinements=p_n_feature_fourteen_browse-bin%3A11142592031%2Cp_89%3AFossil&rnid=3837712031&s=watches&sr=1-1");
@@ -77,37 +78,8 @@ const ShopSenseMain = () => {
 
   return (
     <div style={{display:"flex", flexDirection:"column", height:"100vh", overflow:"hidden"}}>
-        <div className={styles.iphone1420Item} >
-            <img className={styles.image23Icon} alt="" src="/image-23@2x.png"/>
-            <img
-                className={styles.screenshot20230511At103}
-                alt=""
-                src="/screenshot-20230511-at-103-1@2x.png"
-              />
-            <MenuItemCustom />
-            {/*<img className={styles.image13Icon} alt="" src="/image-13@2x.png" />*/}
-        </div>
-        <div style={{width: "475px", display:"flex", justifyContent:"space-between", alignItems:"flex-start", padding:"15px 5px"}}>
-            <div style={{display:"flex", flexDirection:"column", alignItems:"center"}}>
-                <div className={styles.circledImg}>
-                    <img
-                        className={styles.a7vnwpatl1Icon}
-                        alt=""
-                        src="/51a7vnwpatl-1@2x.png"
-                    />
-                </div>
-                <div className={styles.productName}>Borosil Bottle</div>
-            </div>
-            <div className={styles.summaryBestSellingContainer}>
-                <p className={styles.summary}>
-                  <b>Summary:</b>
-                </p>
-                <p className={styles.bestSellingBottles}>
-                  {/*{productDesc}*/}
-                    INSULATED SPORTS WATER BOTTLE: Goodbye sweat! The double wall insulation makes the Iron Flask sweat-free! It keeps your drink COLD for up to 24 hours, and HOT for up to 12 hours. *NOTE: ONLY the 14 Oz, 18 Oz, & 22 Oz fit in cupholders* 3 LIDS: YES, Iron Flask comes with THREE different 100% LEAK PROOF lids. Carabiner Straw Lid with 2 Straws, Flip Lid, and a Stainless Steel Lid!
-                </p>
-            </div>
-        </div>
+        <Header />
+        <ProductDescription />
 
         <div style={{display:"flex" , width: "483px", justifyContent:"space-evenly"}}>
             <div style={{display:"flex", flexDirection:"column"}}>
