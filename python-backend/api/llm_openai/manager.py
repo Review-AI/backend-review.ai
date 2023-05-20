@@ -61,10 +61,11 @@ def get_product_details(product_name,  short_reviews):
     product_complaints_percent = product_complaints_percent[0] if product_complaints_percent else 0
     print(product_complaints_percent)
     
-    return {"product_name": short_product_name, 
-            "product_likeness": product_likeness_percent,
-            "product_complaints": product_likeness_percent
-            }
+    return {
+        "product_name": short_product_name, 
+        "product_likeness": product_likeness_percent,
+        "product_complaints": product_likeness_percent
+    }
 
 
     

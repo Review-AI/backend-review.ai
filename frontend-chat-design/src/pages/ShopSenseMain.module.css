@@ -443,7 +443,7 @@
 
 .userMessage{
   /*height: 100px;*/
-  max-width: 297px;
+  max-width: 320px;
   border-radius: 24px 24px 0px 24px;
   padding: 12px 10px;
   font-family:  var(--font-dm-sans);
@@ -451,7 +451,7 @@
   display: inline-block;
   float: right;
   line-height: 24px;
-  margin-right: 10px;
+  margin: 5px 10px 5px 5px;
   background-color: #2a49bd;
   color: white;
 }

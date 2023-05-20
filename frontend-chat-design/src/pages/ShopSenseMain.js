@@ -11,8 +11,10 @@ import JumpingDotCustom from "../components/JumpingDots/JumpingDotCustom";
 import ProductDescription from "../components/ProductDescription";
 import Batches from "../components/Batches";
 import Header from "../components/Header";
+import AlwaysScrollToBottom from "../components/AlwaysScrollToBottom"
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
+
 
 const ShopSenseMain = () => {
   const [amazonLink, setAmazonLink] = useState("https://www.amazon.in/Fossil-Smartwatch-stainless-Bluetooth-calling/dp/B08FWGZB8Q/ref=sr_1_1?pf_rd_i=2563505031&pf_rd_m=A1VBAL9TL5WCBF&pf_rd_p=22a2aad2-37a9-4d94-8d6b-c94d479eac2e&pf_rd_r=3537M7ZRZMVECT8KWQH6&pf_rd_s=merchandised-search-10&qid=1681499073&refinements=p_n_feature_fourteen_browse-bin%3A11142592031%2Cp_89%3AFossil&rnid=3837712031&s=watches&sr=1-1");
@@ -79,19 +81,25 @@ const ShopSenseMain = () => {
 	}
 
 	const fetchChatAnswer = async () => {
+    if(!chatQuestion.trim())
+      return
     let question = chatQuestion
     setChatQuestion("")
+    let conv = [...conversation]
+    conv.push(chatQuestion)
+    conv.push("...")
+    setConversation(conv)
 		let res =  await axios.post(`${python_base_url}/predict/get_chat_answer`, {"clientID": clientID, "question": question})
 		let answer = res.data.data
-    let conv = [...conversation]
     conv[conv.length - 1] = answer
-		setConversation(conv)
+    console.log(conv)
+		setConversation(prevOutput => [...prevOutput])
 	}
   console.log(conversation)
   let conversationHtml = conversation.map((message, index) => {
     if(index%2!==0)
     return(
-      <span><div className={styles.userMessage}>{message}</div><br/></span>
+      <div style={{width:"100%", display:"inline-block"}}><div className={styles.userMessage}>{message}</div></div>
     )
     else if(message === '...')
     return(
@@ -104,15 +112,12 @@ const ShopSenseMain = () => {
     )
     else
     return(
-      <span>
       <div style={{display: "flex"}}>
                         <div className={styles.botIcon}><img src={bot} style={{height:"21px", width:"auto"}}/></div>
                         <div className={styles.botMessage}>
                           {message}
                         </div>
                     </div>
-                    <br/>
-                    </span>
     )
   });
   return (
@@ -145,6 +150,7 @@ const ShopSenseMain = () => {
                 <div className={styles.chatWindow} style={{height:"80%", overflowY: "scroll", position: "absolute", width:"100%"}}>
                     <div className={styles.chatTime}>{today[new Date().getDay()]}, {moment(new Date()).format("hh:mm A")}</div>
                     {conversationHtml}
+                    <AlwaysScrollToBottom />
                 </div>
                 <div style={{height:"20%", marginTop:"auto", display:"flex", justifyContent:"space-evenly", alignItems:"center"}}>
                     <input 
@@ -160,10 +166,6 @@ const ShopSenseMain = () => {
                     />
                     <div className={styles.chatSubmit}>
                       <ArrowForwardIcon style={{color: "white"}} onClick={()=>{
-                        let conv = [...conversation]
-                        conv.push(chatQuestion)
-                        conv.push("...")
-                        setConversation(conv)
                         fetchChatAnswer()
                       }
                         }/>
