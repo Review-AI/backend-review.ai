@@ -385,7 +385,7 @@
 }
 
 .chatbot{
-  margin-top: 21px;
+  /* margin-top: 21px; */
   width:483px;
   background-color: #1d2b4a;
   /*height: calc(100% - 129px);*/
@@ -478,4 +478,9 @@
 .chatWindow::-webkit-scrollbar{
   display:none
 
+}
+
+
+.showCursor:hover{
+  cursor: pointer;
 }

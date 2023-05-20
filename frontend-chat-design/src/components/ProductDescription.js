@@ -3,7 +3,7 @@ import styles from "../pages//ShopSenseMain.module.css";
 
 export default function ProductDescription(props) {
   return (
-    <div style={{width: "475px", display:"flex", justifyContent:"space-between", alignItems:"flex-start", padding:"15px 5px"}}>
+    <div style={{width: "475px", display:"flex", justifyContent:"space-between", alignItems:"flex-start", padding:"15px 5px 5px"}}>
             <div style={{display:"flex", flexDirection:"column", alignItems:"center"}}>
                 <div className={styles.circledImg}>
                     <img

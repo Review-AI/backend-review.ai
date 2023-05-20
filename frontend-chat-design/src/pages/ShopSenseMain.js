@@ -11,6 +11,8 @@ import JumpingDotCustom from "../components/JumpingDots/JumpingDotCustom";
 import ProductDescription from "../components/ProductDescription";
 import Batches from "../components/Batches";
 import Header from "../components/Header";
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 
 const ShopSenseMain = () => {
   const [amazonLink, setAmazonLink] = useState("https://www.amazon.in/Fossil-Smartwatch-stainless-Bluetooth-calling/dp/B08FWGZB8Q/ref=sr_1_1?pf_rd_i=2563505031&pf_rd_m=A1VBAL9TL5WCBF&pf_rd_p=22a2aad2-37a9-4d94-8d6b-c94d479eac2e&pf_rd_r=3537M7ZRZMVECT8KWQH6&pf_rd_s=merchandised-search-10&qid=1681499073&refinements=p_n_feature_fourteen_browse-bin%3A11142592031%2Cp_89%3AFossil&rnid=3837712031&s=watches&sr=1-1");
@@ -23,6 +25,7 @@ const ShopSenseMain = () => {
 	const [productDesc, setProductDesc] = useState("")
 	const [clientID, setClientID] = useState("")
 	const [chatQuestion, setChatQuestion] = useState("")
+  const [expandChatScreen, setExpandChatScreen] = useState(false)
 	const [conversation, setConversation] = useState(["Hello, I'm Review AI. I'm your personal product assistant 👋. How can I help you?"])
     const today = {
       0: "Sun",
@@ -116,10 +119,27 @@ const ShopSenseMain = () => {
     <div style={{display:"flex", flexDirection:"column", height:"100vh", overflow:"hidden"}}>
         <Header />
         <ProductDescription productImg={productImg} productDesc={productDesc} productName={productName}/>
-        <Batches totalReviews={totalReviews} productComplaint={productComplaint} productLikeness={productLikeness}/>
+        {!expandChatScreen && <Batches totalReviews={totalReviews} productComplaint={productComplaint} productLikeness={productLikeness}/>}
         
         <div className={styles.chatbot}>
-            <div className={styles.chatbotTitle}>Ask your Doubts</div>
+            <div style={{display:"flex", alignItems: "flex-end", justifyContent: "space-between"}}>
+              <div className={styles.chatbotTitle}>Ask your Doubts</div>
+              {
+                expandChatScreen?
+                  <ExpandMoreIcon 
+                    className={styles.showCursor} 
+                    style={{color: "#ffffff", marginRight:"30px", fontSize:"27px"}}
+                    onClick={()=>setExpandChatScreen(false)}
+                  />
+                  :
+                  <ExpandLessIcon 
+                    className={styles.showCursor} 
+                    style={{color: "#ffffff", marginRight:"30px", fontSize:"27px"}}
+                    onClick={()=>setExpandChatScreen(true)}
+                  />
+
+              }
+            </div>
             <Divider color={"white"} style={{margin:"5px 10px"}}/>
             <div style={{flexGrow:1, display:"flex", flexDirection:"column", position: "relative"}}>
                 <div className={styles.chatWindow} style={{height:"80%", overflowY: "scroll", position: "absolute", width:"100%"}}>
@@ -131,7 +151,12 @@ const ShopSenseMain = () => {
                       className={styles.chatInput} 
                       placeholder={"Type a message..."} 
                       value={chatQuestion} 
-                      onChange={(e) => setChatQuestion(e.target.value)}
+                      onChange={(e) => {
+                        if(!expandChatScreen)
+                          setExpandChatScreen(true)
+                        setChatQuestion(e.target.value)
+                      }
+                      }
                     />
                     <div className={styles.chatSubmit}>
                       <ArrowForwardIcon style={{color: "white"}} onClick={()=>{
