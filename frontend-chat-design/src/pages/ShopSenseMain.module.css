@@ -216,7 +216,8 @@
 
 .a7vnwpatl1Icon {
   border-radius: var(--br-81xl);
-  width: 177px;
+  /* width: 177px; */
+  width: auto;
   height: 168px;
   text-align: center;
   /*object-fit: cover;*/
@@ -345,7 +346,8 @@
 }
 
 .circledImg {
-  background: #1d2b4a;
+  /* background: #1d2b4a; */
+  background: #ffffff;
   /*font-size: 25px;*/
   text-align: center;
   align-items: center;
@@ -353,6 +355,7 @@
   height: 179px;
   /*margin-right: 10px;*/
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border: 5.5px solid #1d2b4a; 
   border-radius:50%;
   display:flex;
   justify-content: center;
@@ -472,3 +475,7 @@
   justify-content: center;
 }
 
+.chatWindow::-webkit-scrollbar{
+  display:none
+
+}

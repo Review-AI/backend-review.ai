@@ -6,6 +6,7 @@ import re
 from langchain.document_loaders import DirectoryLoader
 from langchain.docstore.document import Document
 from langchain.vectorstores import FAISS
+from langchain import PromptTemplate
 
 llm_map = {}
 
@@ -37,6 +38,33 @@ def get_chat_answer(client_id, question):
         return "Bot is unable to get answer"
     output = model.run(question)
     return output
+
+def get_product_details(product_name,  short_reviews):
+    llm = OpenAI(openai_api_key = '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', verbose= True)
+
+    name_template = "Give two word descriptive name for: {product_name}."
+    name_prompt_template = PromptTemplate(template=name_template, input_variables=["product_name"])
+    short_product_name = llm(name_prompt_template.format(product_name = product_name))
+    short_product_name= short_product_name.strip().strip(".")
+    print(short_product_name)
+
+    batch_template = "What is the percentage of {prompt} based on reviews: {short_reviews}"
+    batch_prompt_template = PromptTemplate(template=batch_template, input_variables=["prompt", "short_reviews"])
+    
+    product_likeness = llm(batch_prompt_template.format(prompt = "users who have liked the product", short_reviews=short_reviews))
+    product_likeness_percent = re. findall(r"[-+]?(?:\d*\.*\d+)", product_likeness)
+    product_likeness_percent = product_likeness_percent[0] if product_likeness_percent else 0
+    print(product_likeness_percent)
+
+    product_complaints = llm(batch_prompt_template.format(prompt = "users who have complaint about the product", short_reviews=short_reviews))
+    product_complaints_percent = re. findall(r"[-+]?(?:\d*\.*\d+)", product_complaints)
+    product_complaints_percent = product_complaints_percent[0] if product_complaints_percent else 0
+    print(product_complaints_percent)
+    
+    return {"product_name": short_product_name, 
+            "product_likeness": product_likeness_percent,
+            "product_complaints": product_likeness_percent
+            }
 
 
     

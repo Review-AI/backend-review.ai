@@ -1,5 +1,5 @@
 import { apply, parallelLimit } from 'async';
-import { reviews as _reviews } from 'amazon-buddy';
+import { reviews as _reviews, asin as _asin } from 'amazon-buddy';
 
 class Amazon{
 constructor() {}
@@ -9,6 +9,10 @@ static async getReviews(asinID){
     // Set up the pagination parameters
     let page = 1;
     let totalPages = 50;
+
+    // Extract product name, product link
+    const productDetails = await _asin({ asin: asinID});
+    console.log(productDetails.result[0])
 
     // Set up the async.parallel function to fetch data from multiple pages in parallel
     const tasks = [];
@@ -26,7 +30,8 @@ static async getReviews(asinID){
     
       const aggregatedData = results.reduce((acc, curr) => acc.concat(curr), []);
       console.log(aggregatedData.length)
-      return {"reviews": aggregatedData}
+
+      return {"reviews": aggregatedData, "product_img": productDetails.result[0]["main_image"], "product_nm": productDetails.result[0]["title"], "total_reviews": productDetails.result[0]["reviews"]["total_reviews"]}
 }
 
 // Function to fetch data from a single page

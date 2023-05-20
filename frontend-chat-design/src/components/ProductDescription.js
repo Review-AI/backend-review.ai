@@ -12,7 +12,7 @@ export default function ProductDescription(props) {
                         src={props.productImg}
                     />
                 </div>
-                <div className={styles.productName}>Borosil Bottle</div>
+                <div className={styles.productName}>{props.productName}</div>
             </div>
             <div className={styles.summaryBestSellingContainer}>
                 <p className={styles.summary}>

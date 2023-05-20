@@ -16,12 +16,14 @@ const ShopSenseMain = () => {
   const [amazonLink, setAmazonLink] = useState("https://www.amazon.in/Fossil-Smartwatch-stainless-Bluetooth-calling/dp/B08FWGZB8Q/ref=sr_1_1?pf_rd_i=2563505031&pf_rd_m=A1VBAL9TL5WCBF&pf_rd_p=22a2aad2-37a9-4d94-8d6b-c94d479eac2e&pf_rd_r=3537M7ZRZMVECT8KWQH6&pf_rd_s=merchandised-search-10&qid=1681499073&refinements=p_n_feature_fourteen_browse-bin%3A11142592031%2Cp_89%3AFossil&rnid=3837712031&s=watches&sr=1-1");
 	const [loading, setLoading] = useState(false);
   const [productImg, setProductImg] = useState("");
+  const [productName, setProductName] = useState("");
+  const [productLikeness, setProductLikeness] = useState(0)
+  const [productComplaint, setProductComplaint] = useState(0)
   const [totalReviews, setTotalReviews] = useState(0)
 	const [productDesc, setProductDesc] = useState("")
 	const [clientID, setClientID] = useState("")
 	const [chatQuestion, setChatQuestion] = useState("")
-	const [conversation, setConversation] = useState([])
-
+	const [conversation, setConversation] = useState(["Hello, I'm Review AI. I'm your personal product assistant 👋. How can I help you?"])
     const today = {
       0: "Sun",
       1: "Mon",
@@ -59,56 +61,88 @@ const ShopSenseMain = () => {
 		setProductDesc(product_desc.data)
 		console.log(product_desc)
 
-		// get the description of the product
+		// get product name
+    let short_corpus = data.reviews.slice(0, 20).map(ele=> {return ele.review }).join(".\n ")
+    let product_details =  await axios.post(`${python_base_url}/predict/get_product_details`, {"product_name": data.product_nm, "short_reviews": short_corpus})
+		
+    console.log(product_details)
+    setProductName(product_details.data.data.product_name)
+    setProductLikeness(product_details.data.data.product_likeness)
+    setProductComplaint(product_details.data.data.product_complaints)
+
+    // get the description of the product
 		setLoading(false)
 
 	}
 
 	const fetchChatAnswer = async () => {
-		setLoading(true)
-		let res =  await axios.post(`${python_base_url}/predict/get_chat_answer`, {"clientID": clientID, "question": chatQuestion})
-		let answer = res.data
-		let conv = [...conversation]
-		conv.push(chatQuestion)
-		conv.push(answer.data)
+    let question = chatQuestion
+    setChatQuestion("")
+		let res =  await axios.post(`${python_base_url}/predict/get_chat_answer`, {"clientID": clientID, "question": question})
+		let answer = res.data.data
+    let conv = [...conversation]
+    conv[conv.length - 1] = answer
 		setConversation(conv)
-		setChatQuestion("")
-		setLoading(false)
 	}
-
+  console.log(conversation)
+  let conversationHtml = conversation.map((message, index) => {
+    if(index%2!==0)
+    return(
+      <span><div className={styles.userMessage}>{message}</div><br/></span>
+    )
+    else if(message === '...')
+    return(
+      <div style={{display: "flex"}}>
+      <div className={styles.botIcon}><img src={bot} style={{height:"21px", width:"auto"}}/></div>
+      <div className={styles.botMessage}>
+          <JumpingDotCustom />
+      </div>
+  </div>
+    )
+    else
+    return(
+      <span>
+      <div style={{display: "flex"}}>
+                        <div className={styles.botIcon}><img src={bot} style={{height:"21px", width:"auto"}}/></div>
+                        <div className={styles.botMessage}>
+                          {message}
+                        </div>
+                    </div>
+                    <br/>
+                    </span>
+    )
+  });
   return (
     <div style={{display:"flex", flexDirection:"column", height:"100vh", overflow:"hidden"}}>
         <Header />
-        <ProductDescription productImg={productImg} productDesc={productDesc}/>
-        <Batches totalReviews={totalReviews} />
+        <ProductDescription productImg={productImg} productDesc={productDesc} productName={productName}/>
+        <Batches totalReviews={totalReviews} productComplaint={productComplaint} productLikeness={productLikeness}/>
         
         <div className={styles.chatbot}>
             <div className={styles.chatbotTitle}>Ask your Doubts</div>
             <Divider color={"white"} style={{margin:"5px 10px"}}/>
             <div style={{flexGrow:1, display:"flex", flexDirection:"column", position: "relative"}}>
-                <div style={{height:"80%", overflowY: "scroll", position: "absolute", width:"100%"}}>
+                <div className={styles.chatWindow} style={{height:"80%", overflowY: "scroll", position: "absolute", width:"100%"}}>
                     <div className={styles.chatTime}>{today[new Date().getDay()]}, {moment(new Date()).format("hh:mm A")}</div>
-                    <div style={{display: "flex"}}>
-                        <div className={styles.botIcon}><img src={bot} style={{height:"21px", width:"auto"}}/></div>
-                        <div className={styles.botMessage}>
-                            Hello, I'm Review AI. I'm your personal product assistant 👋. How can I help you?
-                        </div>
-                    </div>
-                    <br/>
-                    <div className={styles.userMessage}>Is this bottle leak proof?</div><br/><br/>
-                    <div style={{display: "flex"}}>
-                        <div className={styles.botIcon}><img src={bot} style={{height:"21px", width:"auto"}}/></div>
-                        <div className={styles.botMessage}>
-                            <JumpingDotCustom />
-                        </div>
-                        {/*<div className={styles.botMessage}>*/}
-                        {/*    Yes, it is leak proof*/}
-                        {/*</div>*/}
-                    </div>
+                    {conversationHtml}
                 </div>
                 <div style={{height:"20%", marginTop:"auto", display:"flex", justifyContent:"space-evenly", alignItems:"center"}}>
-                    <input className={styles.chatInput} placeholder={"Type a message..."}/>
-                    <div className={styles.chatSubmit}><ArrowForwardIcon style={{color: "white"}}/></div>
+                    <input 
+                      className={styles.chatInput} 
+                      placeholder={"Type a message..."} 
+                      value={chatQuestion} 
+                      onChange={(e) => setChatQuestion(e.target.value)}
+                    />
+                    <div className={styles.chatSubmit}>
+                      <ArrowForwardIcon style={{color: "white"}} onClick={()=>{
+                        let conv = [...conversation]
+                        conv.push(chatQuestion)
+                        conv.push("...")
+                        setConversation(conv)
+                        fetchChatAnswer()
+                      }
+                        }/>
+                    </div>
                 </div>
             </div>
         </div>

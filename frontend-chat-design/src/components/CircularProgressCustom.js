@@ -64,11 +64,11 @@ export default function CircularProgressCustom(props) {
               fontSize: "14px"
             }}
           >
-            {props.progressPercent}% 
+            {props.progressBarTitle}
           </Typography>
         </Box>
       </Box>
-      <span className={styles.batch} style={{color:progressTextColor}}>Total Reviews</span>
+      <span className={styles.batch} style={{color:progressTextColor}}>{props.progressTitle}</span>
     </div>
   );
 }
