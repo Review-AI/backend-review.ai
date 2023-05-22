@@ -64,7 +64,7 @@ def get_product_details(product_name,  short_reviews):
     return {
         "product_name": short_product_name, 
         "product_likeness": product_likeness_percent,
-        "product_complaints": product_likeness_percent
+        "product_complaints": product_complaints_percent
     }
 
 
