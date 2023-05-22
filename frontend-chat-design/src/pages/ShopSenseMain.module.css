@@ -327,7 +327,7 @@
 }
 .image23Icon {
   top: 11px;
-  margin-left: 107px;
+  margin-left: 63px;
   border-radius: 10px;
   width: 50px;
   height: 54px;
@@ -483,4 +483,11 @@
 
 .showCursor:hover{
   cursor: pointer;
+}
+
+.linearProgress{
+  margin-top:45vh;
+  width:400px;
+  margin-left:40px;
+  margin-right:40px;
 }

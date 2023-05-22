@@ -1,5 +1,4 @@
 import ShopSenseMain from "./pages/ShopSenseMain";
-
 function App() {
 
   return (
