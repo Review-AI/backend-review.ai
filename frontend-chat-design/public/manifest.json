@@ -1,16 +1,37 @@
 {
-    "name": "ShopSensor AI",
-    "description": "Base Level Extension",
-    "version": "1.0",
-    "manifest_version": 2,
-    "browser_action": {
-        "default_popup": "index.html",
-        "default_title": "Open the popup"
-    },
-    "content_security_policy": "script-src 'self' 'sha256-GgRxrVOKNdB4LrRsVPDSbzvfdV4UqglmviH9GoBJ5jk='; object-src 'self'",
+    "name": "ShopSense AI",
+    "description": "ShopSense AI",
+    "version": "0.0.1",
+    "manifest_version": 3,
     "permissions": [
+        "scripting",
         "activeTab",
         "<all_urls>",
-        "tabs"
-    ]
-}
+        "tabs",
+        "http://*/*", 
+        "https://*/*"
+    ],
+    "host_permissions": ["<all_urls>"],
+    "web_accessible_resources" : [{
+      "resources": ["*.html"],
+      "matches": ["<all_urls>"]
+    }],
+    "content_scripts": [
+        {
+          "matches": ["<all_urls>"],
+          "js": ["content.js"],
+          "run_at": "document_start" 
+        }
+      ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "action":{
+      "default_popup": "popup.html",
+      "default_title": "Open the popup"
+    },
+    "content_security_policy": {
+      "extension_pages": "script-src 'self'; object-src 'self';",
+      "sandbox": "sandbox allow-scripts allow-forms allow-popups allow-modals; script-src 'self' 'unsafe-inline' 'unsafe-eval'; child-src 'self';"
+    }
+  }
