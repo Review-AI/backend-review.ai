@@ -24,7 +24,7 @@ export default function CircularProgressCustom(props) {
     progressBgColor = "#E2F5D7"
   }
   return (
-    <div style={{display:"flex", flexDirection:"column"}}>
+    <div style={{display:"flex", flexDirection:"column", margin:0, padding:0}}>
       <Box sx={{ position: "relative", display: "inline-flex", justifyContent:"center" }}>
         <CircularProgress
           variant="determinate"
@@ -32,8 +32,8 @@ export default function CircularProgressCustom(props) {
           sx = {{color: "red"}}
           style={{
             color: `${progressBarColor}`,
-            width: "77px",
-            height: "77px",
+            width: "73px",
+            height: "73px",
             borderRadius: "100%",
             boxShadow: `inset 0 0 0px 11px ${progressBgColor}`,
             backgroundColor: "transparent"
@@ -68,7 +68,8 @@ export default function CircularProgressCustom(props) {
           </Typography>
         </Box>
       </Box>
-      <span className={styles.batch} style={{color:progressTextColor}}>{props.progressTitle}</span>
+      <span className={styles.batch} style={{color:progressTextColor, textAlign:"center"}}>{props.progressTitle.split(" ")[0]}</span>
+      <span className={styles.batch} style={{color:progressTextColor, textAlign:"center", padding:0, margin:0}}>{props.progressTitle.split(" ")[1]}</span>
     </div>
   );
 }

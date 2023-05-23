@@ -10,7 +10,7 @@
   left: 0;
   border-radius: 0 0 var(--br-31xl) var(--br-31xl);
   background-color: var(--color-darkslategray-200);
-  width: 483px;
+  width: 424px;
   /*height: 79px;*/
   height: 69px;
   align-items: center;
@@ -23,6 +23,7 @@
   margin: 0;
   font-size: var(--font-size-mini);
   color: #393939;
+  justify-content: center;
 }
 .summaryBestSellingContainer {
   width: 255px;
@@ -56,7 +57,7 @@
   left: 0;
   border-radius: var(--br-31xl) var(--br-31xl) 0 0;
   background-color: var(--color-darkslategray-200);
-  width: 483px;
+  width: 424px;
   height: 546px;
 }
 .typeAMessage {
@@ -163,7 +164,7 @@
   left: -24.5px;
   border-top: 1px solid var(--color-white);
   box-sizing: border-box;
-  width: 483px;
+  width: 424px;
   height: 1px;
 }
 .div,
@@ -176,7 +177,7 @@
   top: 526px;
   left: 15px;
   width: 463px;
-  height: 450px;
+  height: 424px;
   font-size: var(--font-size-base);
 }
 .ellipseIcon,
@@ -203,8 +204,8 @@
   top: 11px;
   /*margin-left: 169px;*/
   margin-left: 16px;
-  width: 207px;
-  height: 57px;
+  width: auto;
+  height: 51px;
   object-fit: cover;
 }
 .image13Icon {
@@ -217,8 +218,9 @@
 .a7vnwpatl1Icon {
   border-radius: var(--br-81xl);
   /* width: 177px; */
-  width: auto;
-  height: 168px;
+  width: "auto";
+  height: 150px;
+  max-width: 154px;
   text-align: center;
   /*object-fit: cover;*/
   /*display:block;*/
@@ -327,10 +329,10 @@
 }
 .image23Icon {
   top: 11px;
-  margin-left: 63px;
+  margin-left: 45px;
   border-radius: 10px;
-  width: 50px;
-  height: 54px;
+  width: auto;
+  height: 50px;
   object-fit: cover;
 }
 .iphone1420 {
@@ -351,9 +353,10 @@
   /*font-size: 25px;*/
   text-align: center;
   align-items: center;
-  width: 187px;
-  height: 179px;
-  /*margin-right: 10px;*/
+  width: 160px;
+  height: 152px;
+  margin-left: 5px;
+  margin-right: 8px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border: 5.5px solid #1d2b4a; 
   border-radius:50%;
@@ -368,11 +371,11 @@
   padding: 10px 5px;
   text-align: center;
   margin: 23px 9px;
-  width: 202px;
+  width: 150px;
   color: white;
   font-family: var(--font-dm-sans);
-  line-height: 16px;
-  font-size: 20px;
+  line-height: 21px;
+  font-size: 18px;
   font-weight: 400;
 }
 
@@ -386,7 +389,7 @@
 
 .chatbot{
   /* margin-top: 21px; */
-  width:483px;
+  width:424px;
   background-color: #1d2b4a;
   /*height: calc(100% - 129px);*/
   border-radius: var(--br-31xl) var(--br-31xl) 0 0;

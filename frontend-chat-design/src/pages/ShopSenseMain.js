@@ -21,7 +21,7 @@ import LinearProgress from '@mui/material/LinearProgress';
 const ShopSenseMain = () => {
   const [amazonLink, setAmazonLink] = useState("https://www.amazon.in/Fossil-Smartwatch-stainless-Bluetooth-calling/dp/B08FWGZB8Q/ref=sr_1_1?pf_rd_i=2563505031&pf_rd_m=A1VBAL9TL5WCBF&pf_rd_p=22a2aad2-37a9-4d94-8d6b-c94d479eac2e&pf_rd_r=3537M7ZRZMVECT8KWQH6&pf_rd_s=merchandised-search-10&qid=1681499073&refinements=p_n_feature_fourteen_browse-bin%3A11142592031%2Cp_89%3AFossil&rnid=3837712031&s=watches&sr=1-1");
 	const [loading, setLoading] = useState(false);
-  const [expandShopSenseAI, setExpandShopSenseAI] = useState(false);
+  const [expandShopSenseAI, setExpandShopSenseAI] = useState(true);
   const [productImg, setProductImg] = useState("");
   const [productName, setProductName] = useState("");
   const [productLikeness, setProductLikeness] = useState(0)
@@ -31,7 +31,7 @@ const ShopSenseMain = () => {
 	const [clientID, setClientID] = useState("")
 	const [chatQuestion, setChatQuestion] = useState("")
   const [expandChatScreen, setExpandChatScreen] = useState(false)
-	const [conversation, setConversation] = useState(["Hello, I'm Review AI. I'm your personal product assistant 👋. How can I help you?"])
+	const [conversation, setConversation] = useState(["Hello, I'm Shopsense AI. I'm your personal product assistant 👋. How can I help you?"])
     const today = {
       0: "Sun",
       1: "Mon",
@@ -49,7 +49,7 @@ const ShopSenseMain = () => {
   }, [clientID])
 
 	const fetchReviews = async () => {
-		setLoading(true);
+		setLoading(false);
     const clientUUID = uuidv4()
     setClientID(clientUUID)
     let amazonURL = window.location.href
