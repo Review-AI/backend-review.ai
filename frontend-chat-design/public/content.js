@@ -1,6 +1,8 @@
 // recieve information from background script
 chrome.runtime.onMessage.addListener(async (message, sender, sendResponse) => {
-      if(window.location.host.includes("amazon")){
+      let amazonURL = window.location.href
+      let asinID = amazonURL.match("(?:[/dp/]|$)([A-Z0-9]{10})")
+      if(amazonURL.includes("amazon") && asinID){
         var e=document.getElementById("shopsense-container");
         if(e!==null) e.remove();
         const modal = document.createElement('div');

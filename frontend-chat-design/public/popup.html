@@ -1,11 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-  <body>
-    <div id="popup-root" style="width:300px;height:200px">
-      <div>
-        ShopSense AI helps to answer any questions about the amazon product. Use it to get more information
+  <style>
+    .amazon-button:hover{
+        cursor: pointer;
+    }
+  </style>
+  <body style="padding:0;margin:0">
+    <div style="padding:0;margin:0;width:360px;">
+      <div style="align-items: center;justify-content: center;display: flex;padding:5px 0;width:auto; background-color: #1d2b4a; border-radius: 0 0 50px 50px;top:0;left:0">
+        <img style="width:auto;height:40px;object-fit:cover;border-radius:10px;" alt="" src="image-23@2x.png"/>
+        <img
+            style="width:auto;height:43px;object-fit:cover;padding-left:8px"
+            alt=""
+            src="screenshot-20230511-at-103-1@2x.png"
+          />
       </div>
-      <button>Visit Amazon</button>
+      <br/>
+      <br/>
+      <div style="font-family:DM Sans;font-size: 18px;padding:0 15px;text-align: center;">
+        Your shopping BFF! Chatbot to the rescue for product queiries. We'll find your perfect fit!
+      </div>
+      <br/>
+      <br/>
+      <div style="width:360px;display:flex;align-items: center;justify-content: center;" onclick="window.redirect=https://www.amazon.com">
+        <a href="https://www.amazon.com/" target="_blank" style="color:transparent">
+          <button class="amazon-button" style="background-color: #1D2B4A;font-family:DM Sans;font-size: 18px;color:#ffffff;padding:10px;display:flex;align-items: center;">
+            Open Amazon 
+            <img src="arrow-icon.png" alt="" style="height:15px;width:auto;padding-left: 5px;"/>
+          </button>
+        </a>
+      </div>
+      <br/>
+      <br/>
+      <div style="font-family:DM Sans;font-size: 18px;padding:0 15px;text-align: center">
+        *This extension appears within few seconds when you land on amazon product page!
+      </div>
+      <br/>
+      <br/>
+        <div style="width:360px;display:flex;align-items: center;justify-content: center;">
+          <a href="mailto:team@shopsense.xyz" target="_blank" style="color:transparent">
+            <div style="padding-left: 5px;font-family:DM Sans;font-size: 14.5px;color:black;display:flex;align-items: center;">
+            <img src="email-icon.png" alt="" style="height:15px;width:auto;padding-right: 5px;"/>
+            team@shopsense.xyz</div>
+          </a>
+          </div>
+        <br/>
+        <br/>
+        <div style="width:360px;display:flex;align-items: center;justify-content: flex-end;">
+        <img src="amazon-logo.png" alt="" style="height: 20px;width:auto;padding-right: 7px;padding-top: 3px;"/>
+        <img src="openai-logo.png" alt="" style="height: 20px;width:auto;margin-right: 15px;"/>
+        </div>
+        <br/>
     </div>
   </body>
 </html>

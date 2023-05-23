@@ -1,4 +1,4 @@
-import styles from "../pages//ShopSenseMain.module.css";
+import styles from "../pages/ShopSenseMain.module.css";
 import MenuItemCustom from "./MenuItemCustom";
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 

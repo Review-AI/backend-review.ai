@@ -43,37 +43,44 @@ const ShopSenseMain = () => {
       7: "Sun",
     }
 
-	useEffect(() => {
-		setClientID(uuidv4())
-	}, [])
-
   useEffect(() => {
-    if(clientID && !productDesc)
+    if(!clientID && !productDesc)
       fetchReviews()
   }, [clientID])
 
 	const fetchReviews = async () => {
 		setLoading(true);
-		const asinID = amazonLink.match("(?:[/dp/]|$)([A-Z0-9]{10})")
+    const clientUUID = uuidv4()
+    setClientID(clientUUID)
+    let amazonURL = window.location.href
+    if(chrome.tabs){
+      let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+      const url = await new URL(tab.url);
+      amazonURL = url.href;
+      console.log(amazonURL)
+    }
+      
+    if(amazonURL.includes("localhost"))
+    amazonURL = amazonLink
+
+    console.log(amazonURL)
+		const asinID = amazonURL.match("(?:[/dp/]|$)([A-Z0-9]{10})")
 		// asinID[1]
 		let res =  await axios.post(`${node_base_url}/api/v1/amazon/reviews`, {"asinID": asinID[1]})
 		let data = res.data.data
-		console.log(data)
 
     setProductImg(data.product_img)
     setTotalReviews(data.total_reviews)
 
 		let corpus = data.reviews.map(ele=> {return ele.review }).join(".\n ")
-		let desc =  await axios.post(`${python_base_url}/predict/get_product_description`, {"clientID": clientID, "reviews": corpus})
+		let desc =  await axios.post(`${python_base_url}/predict/get_product_description`, {"clientID": clientUUID, "reviews": corpus})
 		let product_desc = desc.data
 		setProductDesc(product_desc.data)
-		console.log(product_desc)
 
 		// get product name
     let short_corpus = data.reviews.slice(0, 20).map(ele=> {return ele.review }).join(".\n ")
     let product_details =  await axios.post(`${python_base_url}/predict/get_product_details`, {"product_name": data.product_nm, "short_reviews": short_corpus})
 		
-    console.log(product_details)
     setProductName(product_details.data.data.product_name)
     setProductLikeness(product_details.data.data.product_likeness)
     setProductComplaint(product_details.data.data.product_complaints)

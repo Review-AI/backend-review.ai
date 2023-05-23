@@ -19,6 +19,7 @@ def create_llm_model(reviews):
 
     embeddings = OpenAIEmbeddings(openai_api_key = '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')
 
+    print(embeddings)
     docsearch = FAISS.from_documents(texts, embeddings)
     qa = VectorDBQA.from_chain_type(llm=OpenAI(openai_api_key = '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', verbose= True), chain_type="stuff", vectorstore=docsearch)
 
