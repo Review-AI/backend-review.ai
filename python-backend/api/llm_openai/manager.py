@@ -43,7 +43,7 @@ def get_chat_answer(client_id, question):
 def get_product_details(product_name,  short_reviews):
     llm = OpenAI(openai_api_key = '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', verbose= True)
 
-    name_template = "Give two word descriptive name for: {product_name}."
+    name_template = "Give 2 word name for this product, 1st word to be brand and 2nd word to be product name from: {product_name}."
     name_prompt_template = PromptTemplate(template=name_template, input_variables=["product_name"])
     short_product_name = llm(name_prompt_template.format(product_name = product_name))
     short_product_name= short_product_name.strip().strip(".")

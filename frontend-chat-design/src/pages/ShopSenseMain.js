@@ -12,16 +12,17 @@ import JumpingDotCustom from "../components/JumpingDots/JumpingDotCustom";
 import ProductDescription from "../components/ProductDescription";
 import Batches from "../components/Batches";
 import Header from "../components/Header";
+import LoadingComponent from "../components/LoadingComponent"
 import AlwaysScrollToBottom from "../components/AlwaysScrollToBottom"
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
-import LinearProgress from '@mui/material/LinearProgress';
+import Tooltip from '@mui/material/Tooltip';
 
 
 const ShopSenseMain = () => {
   const [amazonLink, setAmazonLink] = useState("https://www.amazon.in/Fossil-Smartwatch-stainless-Bluetooth-calling/dp/B08FWGZB8Q/ref=sr_1_1?pf_rd_i=2563505031&pf_rd_m=A1VBAL9TL5WCBF&pf_rd_p=22a2aad2-37a9-4d94-8d6b-c94d479eac2e&pf_rd_r=3537M7ZRZMVECT8KWQH6&pf_rd_s=merchandised-search-10&qid=1681499073&refinements=p_n_feature_fourteen_browse-bin%3A11142592031%2Cp_89%3AFossil&rnid=3837712031&s=watches&sr=1-1");
 	const [loading, setLoading] = useState(false);
-  const [expandShopSenseAI, setExpandShopSenseAI] = useState(true);
+  const [expandShopSenseAI, setExpandShopSenseAI] = useState(false);
   const [productImg, setProductImg] = useState("");
   const [productName, setProductName] = useState("");
   const [productLikeness, setProductLikeness] = useState(0)
@@ -49,7 +50,7 @@ const ShopSenseMain = () => {
   }, [clientID])
 
 	const fetchReviews = async () => {
-		setLoading(false);
+		setLoading(true);
     const clientUUID = uuidv4()
     setClientID(clientUUID)
     let amazonURL = window.location.href
@@ -132,14 +133,16 @@ const ShopSenseMain = () => {
   });
   return (
     <div style={{display:"flex", flexDirection:"column", height:"100vh", overflow:"hidden"}}>
-      {!expandShopSenseAI? <img className={styles.showCursor} src={ShopSenseAIIcon} style={{position:"fixed", top:"50%", right:0}} onClick={() => setExpandShopSenseAI(true)}/> 
+      {!expandShopSenseAI? <Tooltip title="Start your AI-powered amazon assistant!">
+            <img className={styles.showCursor} src={ShopSenseAIIcon} 
+              style={{position:"fixed", top:"50%", right:0}} onClick={() => setExpandShopSenseAI(true)}
+            />
+          </Tooltip> 
         :
         <div style={{display:"flex", flexDirection:"column", height:"100vh", overflow:"hidden", backgroundColor:"white"}}>
         <Header setExpandShopSenseAI={setExpandShopSenseAI}/>
         {loading? 
-          <div className={styles.linearProgress}>
-            <LinearProgress sx={{ backgroundColor:'#bfc8eb', '& .MuiLinearProgress-bar': {backgroundColor:"#2a49bd"}}}/>
-          </div>
+          <LoadingComponent />
         :
         <>
         <ProductDescription productImg={productImg} productDesc={productDesc} productName={productName}/>
