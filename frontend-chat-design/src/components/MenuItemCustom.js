@@ -8,9 +8,9 @@ import CommentIcon from '@mui/icons-material/Comment';
 import ContactMailIcon from '@mui/icons-material/ContactMail';
 
 const options = [
-    <span style={{display:"flex"}}><LanguageIcon style={{marginRight:"5px"}}/>Website</span>,
-    <span style={{display:"flex"}}><CommentIcon style={{marginRight:"5px"}}/>Feedback</span>,
-    <span style={{display:"flex"}}><ContactMailIcon style={{marginRight:"5px"}}/>Contact Us</span>,
+    <span style={{display:"flex"}} onClick={() => window.open('http://www.shopsense.xyz', '_blank')}><LanguageIcon style={{marginRight:"5px"}}/>Website</span>,
+    <span style={{display:"flex"}} onClick={() => window.open('https://forms.gle/9gGK1qiq4RncD2GK6', '_blank')}><CommentIcon style={{marginRight:"5px"}}/>Feedback</span>,
+    <span style={{display:"flex"}} onClick={() => window.open('mailto:team@shopsense.xyz')}><ContactMailIcon style={{marginRight:"5px"}}/>Contact Us</span>,
 ];
 
 export default function MenuItemCustom() {

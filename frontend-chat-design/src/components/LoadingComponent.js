@@ -1,5 +1,6 @@
 import styles from "../pages/ShopSenseMain.module.css";
 import LinearProgress from '@mui/material/LinearProgress';
+import CircularProgress from '@mui/material/CircularProgress';
 
 export default function LoadingComponent(props) {
   return (
@@ -13,7 +14,9 @@ export default function LoadingComponent(props) {
                 <div style={{fontFamily:"DM Sans", fontSize:"15px", textAlign:"center"}}>Hang on Tight! Setting up your personal assistant.</div>
         </div>
         <br/><br/><br/>
-        <div className={styles.chatbot}>
+        <div className={styles.chatbot} style={{display:"flex", alignItems:"center", justifyContent:"center"}}>
+        <CircularProgress style={{color:"white"}} size="1.5rem"/><br/>
+        <div style={{fontFamily:"DM Sans", fontSize:"12px", textAlign:"center", color:"white"}}>Please Wait!</div>
         </div>
     </>
   );

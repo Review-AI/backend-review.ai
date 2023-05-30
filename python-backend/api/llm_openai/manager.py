@@ -36,8 +36,10 @@ def get_product_description(client_id, reviews):
 def get_chat_answer(client_id, question):
     model = llm_map.get(client_id)
     if not model:
-        return "Bot is unable to get answer"
+        return "Not found in reviews"
     output = model.run(question)
+    if output.strip() == "I don't know":
+        output = "Not found in reviews"
     return output
 
 def get_product_details(product_name,  short_reviews):

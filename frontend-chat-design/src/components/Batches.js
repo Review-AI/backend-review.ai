@@ -5,9 +5,9 @@ export default function Batches(props) {
   let totalReviewsPercent = ((totalReviewsLimit - props.totalReviews) / totalReviewsLimit ) *100
   let totalReviews = props.totalReviews
   if (totalReviews >= 100000)
-    totalReviews = Math.ceil(totalReviews/100000).toString() + "L"
+    totalReviews = Math.floor(totalReviews/100000).toString() + "L"
   else if (totalReviews >= 1000)
-    totalReviews = Math.ceil(totalReviews/1000).toString() + "K"
+    totalReviews = Math.floor(totalReviews/1000).toString() + "K"
 
   return (
     <div style={{display:"flex" , width: "424px", justifyContent:"space-evenly", marginBottom:"6px"}}>
