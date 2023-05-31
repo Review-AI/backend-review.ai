@@ -16,6 +16,10 @@ app.use(urlencoded(
 
 app.use(cors());
 
+app.get('/', (req, res) => {
+  res.send('Nodejs Backend is running')
+})
+
 app.use("/api/v1", apiRouterV1)
 
 app.listen(port, () => {
