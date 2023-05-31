@@ -5,7 +5,7 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 export default function Header(props) {
   return (
     <div className={styles.iphone1420Item} >
-            <ArrowForwardIosIcon className={styles.showCursor} style={{color:"white", paddingLeft:"25px"}} onClick={() => props.setExpandShopSenseAI(false)}/>
+            <ArrowForwardIosIcon className={styles.showCursor} style={{color:"white", paddingLeft:"6%"}} onClick={() => props.setExpandShopSenseAI(false)}/>
             <img className={styles.image23Icon} alt="" src="/image-23@2x.png"/>
             <img
                 className={styles.screenshot20230511At103}
