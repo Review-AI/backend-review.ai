@@ -7,6 +7,8 @@ from langchain.document_loaders import DirectoryLoader
 from langchain.docstore.document import Document
 from langchain.vectorstores import FAISS
 from langchain import PromptTemplate
+from env import openai_key
+import os 
 
 llm_map = {}
 
@@ -17,11 +19,11 @@ def create_llm_model(reviews):
     text_splitter = CharacterTextSplitter(chunk_size=2000, chunk_overlap=0, separator="\n")
     texts = text_splitter.split_documents([doc_rew])
 
-    embeddings = OpenAIEmbeddings(openai_api_key = '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')
+    embeddings = OpenAIEmbeddings(openai_api_key = openai_key)
 
     print(embeddings)
     docsearch = FAISS.from_documents(texts, embeddings)
-    qa = VectorDBQA.from_chain_type(llm=OpenAI(openai_api_key = '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', verbose= True), chain_type="stuff", vectorstore=docsearch)
+    qa = VectorDBQA.from_chain_type(llm=OpenAI(openai_api_key = openai_key, verbose= True), chain_type="stuff", vectorstore=docsearch)
 
     return qa
 
@@ -43,7 +45,7 @@ def get_chat_answer(client_id, question):
     return output
 
 def get_product_details(product_name,  short_reviews):
-    llm = OpenAI(openai_api_key = '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', verbose= True)
+    llm = OpenAI(openai_api_key = openai_key, verbose= True)
 
     name_template = "Give 2 word name for this product, 1st word to be brand and 2nd word to be product name from: {product_name}."
     name_prompt_template = PromptTemplate(template=name_template, input_variables=["product_name"])
