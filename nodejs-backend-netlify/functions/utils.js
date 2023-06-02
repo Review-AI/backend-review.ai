@@ -8,3 +8,5 @@ const setAPIResponse = ({status, message, error, data} = null) => {
 }
 
 export {setAPIResponse}
+
+module.exports = {setAPIResponse}

@@ -47,3 +47,5 @@ static async fetchPage(asinID, pageNum, callback) {
 }
 
 export {Amazon}
+
+module.exports = {Amazon}

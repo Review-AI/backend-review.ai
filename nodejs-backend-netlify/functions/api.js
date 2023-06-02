@@ -2,7 +2,7 @@ import express from 'express'
 import cors from "cors"
 import urlencoded from "body-parser"
 import ServerlessHttp from 'serverless-http'
-import apiRouterV1 from '../routes.js'
+import apiRouterV1 from './routes.js'
 
 const app = express()
 const port = 5000
@@ -17,10 +17,7 @@ app.use(urlencoded(
 
 app.use(cors());
 
-app.get('/', (req, res) => {
-  res.send('Nodejs Backend is running')
-})
-
 app.use("/.netlify/functions/api/v1", apiRouterV1)
 
-export default ServerlessHttp(app)
+
+module.exports.handler = ServerlessHttp(app);

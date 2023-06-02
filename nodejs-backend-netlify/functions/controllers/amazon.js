@@ -14,3 +14,5 @@ const getReviews = async(req, res) => {
 };
 
 export {getReviews}
+
+module.exports = {getReviews}

@@ -6,3 +6,5 @@ const router = Router()
 router.post("/reviews", getReviews)
 
 export default router
+
+module.exports = router
