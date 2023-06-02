@@ -69,7 +69,7 @@ const ShopSenseMain = () => {
     console.log(amazonURL)
 		const asinID = amazonURL.match("(?:[/dp/]|$)([A-Z0-9]{10})")
 		// asinID[1]
-		let res =  await axios.post(`${node_base_url}/api/v1/amazon/reviews`, {"asinID": asinID[1]})
+		let res =  await axios.post(`${node_base_url}/amazon/reviews`, {"asinID": asinID[1]})
 		let data = res.data.data
 
     setProductImg(data.product_img)

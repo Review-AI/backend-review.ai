@@ -24,8 +24,8 @@ openInNewTab = (firstTab) => {
     chrome.runtime.onMessage.addListener(() => {
       console.log("chrome tab on listener")
       (async () => {
-        const response = await chrome.tabs.sendMessage(tab.id, 'test');
-        console.log(response);
+        await chrome.tabs.sendMessage(tab.id, 'test');
+        console.log("Chrome tab loaded");
       })();
     });
   })
