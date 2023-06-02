@@ -14,9 +14,11 @@ m = url.match("(?:[/dp/]|$)([A-Z0-9]{10})");
 (async () => {
     try {
         // Collect 50 reviews from a product ID B01GW3H3U8
-        const reviews = await amazonScraper.reviews({ asin: m[1]});
-        const product_by_asin = await amazonScraper.asin({ asin: m[1]});
+        const reviews = await amazonScraper.reviews({ asin: "B086671ZSR", country: 'IN'});
+        const product_by_asin = await amazonScraper.asin({ asin: "B086671ZSR", country: 'IN'});
             
+        console.log(reviews)
+        console.log(product_by_asin)
         let corpus = reviews.result.map(ele=> {return {"role":"user", "content":ele.review} })
         corpus.push({"role":"user", "content":"Please give a description of the product from above reviews in 50 words:"})
         let res = await openai.createChatCompletion({

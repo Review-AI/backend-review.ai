@@ -2,9 +2,9 @@ import { Amazon } from "../models/amazon.js";
 import { setAPIResponse } from "../utils.js";
 
 const getReviews = async(req, res) => {
-    const {asinID, region} = req.body
+    const {asinID} = req.body
     try{
-        let reviews = await Amazon.getReviews(asinID, region);
+        let reviews = await Amazon.getReviews(asinID);
         return res.status(200).json(setAPIResponse({status: "success", data: reviews}))
     }
     catch(err){ 

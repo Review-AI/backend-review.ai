@@ -4,6 +4,7 @@ import axios from 'axios';
 import moment from 'moment';
 import { v4 as uuidv4 } from 'uuid';
 import {node_base_url, python_base_url} from '../utils/Routes'
+import {SupportedCountries} from '../utils/Amazon'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import {Divider} from "@mui/material";
 import bot from '../assets/bot.png'
@@ -21,7 +22,7 @@ import Tooltip from '@mui/material/Tooltip';
 
 
 const ShopSenseMain = () => {
-  const [amazonLink, setAmazonLink] = useState("https://www.amazon.in/Fossil-Smartwatch-stainless-Bluetooth-calling/dp/B08FWGZB8Q/ref=sr_1_1?pf_rd_i=2563505031&pf_rd_m=A1VBAL9TL5WCBF&pf_rd_p=22a2aad2-37a9-4d94-8d6b-c94d479eac2e&pf_rd_r=3537M7ZRZMVECT8KWQH6&pf_rd_s=merchandised-search-10&qid=1681499073&refinements=p_n_feature_fourteen_browse-bin%3A11142592031%2Cp_89%3AFossil&rnid=3837712031&s=watches&sr=1-1");
+  const [amazonLink, setAmazonLink] = useState("https://www.amazon.com/Smartwatch-Fitness-Tracker-Pressure-Tracking/dp/B0BBQQJKF8/ref=sr_1_1_sspa?crid=3E6CY3K7I6ZRT&keywords=smartwatch&qid=1685727847&sprefix=smartwatch%2Caps%2C406&sr=8-1-spons&psc=1&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUEzSkdZSDVMMUZMWkc0JmVuY3J5cHRlZElkPUEwNTA3MTM1MVc2NEJRN0g3SFA4RiZlbmNyeXB0ZWRBZElkPUEwOTMxMjg0V0Y2UzE4NFNNT1owJndpZGdldE5hbWU9c3BfYXRmJmFjdGlvbj1jbGlja1JlZGlyZWN0JmRvTm90TG9nQ2xpY2s9dHJ1ZQ==");
 	const [loading, setLoading] = useState(false);
   const [changeOverviewIcon, setChangeOverviewIcon] = useState(false)
   const [expandShopSenseAI, setExpandShopSenseAI] = useState(false);
@@ -69,7 +70,16 @@ const ShopSenseMain = () => {
     console.log(amazonURL)
 		const asinID = amazonURL.match("(?:[/dp/]|$)([A-Z0-9]{10})")
 		// asinID[1]
-		let res =  await axios.post(`${node_base_url}/amazon/reviews`, {"asinID": asinID[1]})
+    let region = "US"
+    try{
+        let urlObj = new URL(amazonURL)
+        console.log(urlObj.host)
+        region = Object.keys(SupportedCountries).find(key => urlObj.host === SupportedCountries[key]["host"]);
+    }
+    catch{
+        
+    }
+		let res =  await axios.post(`${node_base_url}/amazon/reviews`, {"asinID": asinID[1], "region":region})
 		let data = res.data.data
 
     setProductImg(data.product_img)
@@ -138,13 +148,13 @@ const ShopSenseMain = () => {
       {!expandShopSenseAI? <Tooltip title="Start your AI-powered amazon assistant!">
             {changeOverviewIcon?
               <img className={styles.showCursor} src={ShopSenseAIManIcon} 
-                style={{position:"fixed", top:"50%", right:0, height:"13%", width:"auto"}} onClick={() => setExpandShopSenseAI(true)}
+                style={{position:"fixed", top:"50%", right:0, height:"9%", width:"auto"}} onClick={() => setExpandShopSenseAI(true)}
                 onMouseEnter={() => setChangeOverviewIcon(true)} 
                 on onMouseLeave={() => setChangeOverviewIcon(false)}
               />
             :
               <img className={styles.showCursor} src={ShopSenseAIIcon} 
-                style={{position:"fixed", top:"50%", right:0}} onClick={() => setExpandShopSenseAI(true)}
+                style={{position:"fixed", top:"50%", right:0, height:"9%", width:"auto"}} onClick={() => setExpandShopSenseAI(true)}
                 onMouseEnter={() => setChangeOverviewIcon(true)} 
                 on onMouseLeave={() => setChangeOverviewIcon(false)}
               />

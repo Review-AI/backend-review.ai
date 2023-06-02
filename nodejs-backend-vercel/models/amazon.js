@@ -4,20 +4,20 @@ import { reviews as _reviews, asin as _asin } from 'amazon-buddy';
 class Amazon{
 constructor() {}
 
-static async getReviews(asinID, region){
+static async getReviews(asinID){
     const numThreads = 50;
     // Set up the pagination parameters
     let page = 1;
     let totalPages = 50;
 
     // Extract product name, product link
-    const productDetails = await _asin({ asin: asinID, country: region});
+    const productDetails = await _asin({ asin: asinID});
     console.log(productDetails.result[0])
 
     // Set up the async.parallel function to fetch data from multiple pages in parallel
     const tasks = [];
     while (page <= totalPages) {
-        tasks.push(apply(this.fetchPage, asinID, page, region));
+        tasks.push(apply(this.fetchPage, asinID, page));
         page++;
     }
     
@@ -35,9 +35,9 @@ static async getReviews(asinID, region){
 }
 
 // Function to fetch data from a single page
-static async fetchPage(asinID, pageNum, region, callback) {
+static async fetchPage(asinID, pageNum, callback) {
     
-    const reviews = await _reviews({ asin: asinID, bulk: false, page: pageNum, randomUa: true, country: region});
+    const reviews = await _reviews({ asin: asinID, bulk: false, page: pageNum, randomUa: true });
     
     // console.log(reviews.result)
     callback(null, reviews.result)
