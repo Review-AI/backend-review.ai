@@ -11,30 +11,32 @@
   border-radius: 0 0 var(--br-31xl) var(--br-31xl);
   background-color: var(--color-darkslategray-200);
   /* width: 424px; */
-  width: 30%;
+  /* width: 30%; */
   height:9%;
   /* height: 69px; */
   align-items: center;
   display: flex;
+  justify-content: space-around;
 }
 .summary {
   margin: 0;
 }
 .bestSellingBottles {
   margin: 0;
-  font-size: var(--font-size-mini);
+  /* font-size: var(--font-size-mini); */
+  font-size: 1.92vh;
   color: #393939;
   justify-content: center;
 }
 .summaryBestSellingContainer {
-  width: 255px;
-  font-size: 20px;
+  /* width: 25%; */
+  font-size: 2.6vh;
   font-family: var(--font-dm-sans);
   color: #000;
   display: flex;
   justify-content: center;
   flex-direction: column;
-  line-height: 23px;
+  line-height: 21px;
 }
 .catchyPhraseTo {
   position: absolute;
@@ -202,11 +204,11 @@
 }
 .image13Icon,
 .screenshot20230511At103 {
-  top: 11px;
+  /* top: 11px; */
   /*margin-left: 169px;*/
   margin-left: 5%;
   width: auto;
-  height: 75%;
+  height: 6.6vh;
   object-fit: cover;
 }
 .image13Icon {
@@ -220,8 +222,9 @@
   border-radius: var(--br-81xl);
   /* width: 177px; */
   width: "auto";
-  height: 150px;
-  max-width: 154px;
+  height: 22vh;
+  max-width: 10vw;
+  /* max-width: 154px; */
   text-align: center;
   /*object-fit: cover;*/
   /*display:block;*/
@@ -329,10 +332,10 @@
   font-size: var(--font-size-xl);
 }
 .image23Icon {
-  margin-left: 12%;
+  /* margin-left: 12%; */
   border-radius: 10px;
   width: auto;
-  height: 75%;
+  height: 6.6vh;
   object-fit: cover;
 }
 .iphone1420 {
@@ -389,7 +392,7 @@
 
 .chatbot{
   /* margin-top: 21px; */
-  width:30%;
+  /* width:30%; */
   background-color: #1d2b4a;
   /*height: calc(100% - 129px);*/
   border-radius: var(--br-31xl) var(--br-31xl) 0 0;
@@ -509,7 +512,7 @@
 }
 
 .linearProgress{
-  width:27%;
+  /* width:27%; */
   margin-left:2%;
   margin-right:2%;
 }

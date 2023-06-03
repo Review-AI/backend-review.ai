@@ -143,8 +143,10 @@ const ShopSenseMain = () => {
                     </div>
     )
   });
+
+  // did not add width to 25% as we don't need it
   return (
-    <div style={{display:"flex", flexDirection:"column", height:"100vh", overflow:"hidden"}}>
+    <div style={{display:"flex", flexDirection:"column", height:"100vh", overflow:"hidden", width:"360px", right:0, position:"fixed"}}>
       {!expandShopSenseAI? <Tooltip title="Start your AI-powered amazon assistant!">
             {changeOverviewIcon?
               <img className={styles.showCursor} src={ShopSenseAIManIcon} 

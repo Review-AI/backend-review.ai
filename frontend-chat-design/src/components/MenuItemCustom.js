@@ -24,7 +24,7 @@ export default function MenuItemCustom() {
   };
 
   return (
-    <div style={{ width: "100%"}}>
+    <div style={{ padding:0, margin:0}}>
       <IconButton
         aria-label="more"
         id="long-button"
@@ -32,9 +32,9 @@ export default function MenuItemCustom() {
         aria-expanded={open ? 'true' : undefined}
         aria-haspopup="true"
         onClick={handleClick}
-        style={{float:"right"}}
+        style={{float:"right", padding:0, margin:0}}
       >
-        <MoreVertIcon style={{color: "white", fontSize:"40px"}}/>
+        <MoreVertIcon style={{color: "white", fontSize:"40px", padding:0, margin:0}}/>
       </IconButton>
       <Menu
         id="long-menu"
