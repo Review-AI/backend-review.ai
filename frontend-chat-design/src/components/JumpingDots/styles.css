@@ -8,28 +8,27 @@
 
 .jumping-dots .dot-1 {
   background-color: #B0B0B0;
-  width: 8px;
-  height: 8px;
+  width: 1vh;
+  height: 1vh;
   border-radius: 50%;
-  margin-right: 3px;
+  margin-right: 0.5vh;
   animation-delay: 200ms;
 }
 
 .jumping-dots .dot-2 {
   background-color: #B0B0B0	;
-  width: 8px;
-  height: 8px;
+  width: 1vh;
+  height: 1vh;
   border-radius: 50%;
-  margin-right: 3px;
+  margin-right: 0.5vh;
   animation-delay: 400ms;
 }
 
 .jumping-dots .dot-3 {
   background-color:  #B0B0B0;
-  width: 8px;
-  height: 8px;
+  width: 1vh;
+  height: 1vh;
   border-radius: 50%;
-  margin-right: 3px;
   animation-delay: 600ms;
 }
 

@@ -52,10 +52,10 @@ export default function CircularProgressCustom(props) {
           sx = {{color: "red"}}
           style={{
             color: `${progressBarColor}`,
-            width: "73px",
-            height: "73px",
+            width: "8vh",
+            height: "8vh",
             borderRadius: "100%",
-            boxShadow: `inset 0 0 0px 11px ${progressBgColor}`,
+            boxShadow: `inset 0 0 0px 1.15vh ${progressBgColor}`,
             backgroundColor: "transparent"
           }}
           thickness={5}
@@ -81,7 +81,7 @@ export default function CircularProgressCustom(props) {
               textAlign: "center",
               lineHeight: "20.46px",
               fontWeight: 900,
-              fontSize: "14px"
+              fontSize: "2vh"
             }}
           >
             {props.progressBarTitle}

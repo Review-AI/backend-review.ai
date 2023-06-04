@@ -31,7 +31,7 @@ def get_product_description(client_id, reviews):
     # Since product description will be called first so it will not be added to llm_map
     model = create_llm_model(reviews)
     llm_map[client_id] = model
-    query = "Provide a summary of the product in 50 words"
+    query = "Provide a summary of the product in not more than 40 words"
     output = model.run(query)
     return output
 
@@ -50,7 +50,7 @@ def get_product_details(product_name,  short_reviews):
     name_template = "Give 2 word name for this product, 1st word to be brand and 2nd word to be product name from: {product_name}."
     name_prompt_template = PromptTemplate(template=name_template, input_variables=["product_name"])
     short_product_name = llm(name_prompt_template.format(product_name = product_name))
-    short_product_name= short_product_name.strip().strip(".")
+    short_product_name= short_product_name.replace("Answer:", "").strip().strip(".")
     print(short_product_name)
 
     batch_template = "What is the percentage of {prompt} based on reviews: {short_reviews}"

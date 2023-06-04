@@ -223,7 +223,7 @@
   /* width: 177px; */
   width: "auto";
   height: 22vh;
-  max-width: 10vw;
+  max-width: 20vh;
   /* max-width: 154px; */
   text-align: center;
   /*object-fit: cover;*/
@@ -356,10 +356,11 @@
   /*font-size: 25px;*/
   text-align: center;
   align-items: center;
-  width: 84%;
-  height: 5%;
-  margin-left: 2%;
-  margin-right: 2%;
+  width: 22vh;
+  /* width: 85%; */
+  height: 4%;
+  /* margin-left: 1%; */
+  /* margin-right: 1%; */
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border: 5.5px solid #1d2b4a; 
   border-radius:50%;
@@ -371,22 +372,23 @@
 .productName{
   border-radius: 30px;
   background-color: #1D2B4A;
-  padding: 10px 5px;
+  padding: 1.4vh 1vh;
   text-align: center;
-  margin: 23px 9px;
-  width: 150px;
+  margin: 2.7vh 1.2vh;
+  margin-bottom: 0.5vh;
+  width: 20vh;
   color: white;
   font-family: var(--font-dm-sans);
   line-height: 21px;
-  font-size: 18px;
+  font-size: 2.4vh;
   font-weight: 400;
 }
 
 .batch{
-  margin-top: 5px;
+  margin-top: 0.6vh;
   font-family: var(--font-dm-sans);
-  line-height: 19.53px;
-  font-size: 15px;
+  line-height: 15px;
+  font-size: 1.9vh;
   font-weight: 700;
 }
 
@@ -404,19 +406,20 @@
 .chatbotTitle{
   font-family:  var(--font-dm-sans);
   font-weight: 400;
-  font-size: 21px;
+  font-size: 2.5vh;
   color: #ffffff;
   font-style: normal;
-  margin-left: 30px;
-  margin-top: 15px;
+  /* margin-left: 30px; */
+  /* margin-top: 15px; */
 }
 
 .chatInput{
-  height:55%;
-  width: 72%;
+  height:4.5vh;
+  width: 40vh;
   font-family:  var(--font-dm-sans);
   border-radius: 12px;
   padding-left: 6px;
+  font-size: 1.9vh;
   border: none;
 }
 
@@ -426,8 +429,8 @@
 
 .chatSubmit{
   background: #2a49bd;
-  width: 39px;
-  height: 39px;
+  width: 4.2vh;
+  height: 4.2vh;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -436,28 +439,28 @@
 
 .botMessage{
   /*height: 100px;*/
-  max-width: 297px;
+  max-width: 36vh;
   background: #ffffff;
   border-radius: 0px 24px 24px 24px;
-  padding: 12px 10px;
+  padding: 1vh 1.5vh;
   font-family:  var(--font-dm-sans);
-  font-size: 16px;
+  font-size: 2vh;
   display: inline-block;
-  line-height: 24px;
-  margin-left: 10px;
+  line-height: 21px;
+  margin-left: 0.8vh;
 }
 
 .userMessage{
   /*height: 100px;*/
-  max-width: 320px;
+  max-width: 39vh;
   border-radius: 24px 24px 0px 24px;
-  padding: 12px 10px;
+  padding: 1vh 1.5vh;
   font-family:  var(--font-dm-sans);
-  font-size: 16px;
+  font-size: 2vh;
   display: inline-block;
   float: right;
-  line-height: 24px;
-  margin: 5px 10px 5px 5px;
+  line-height: 21px;
+  margin: 0.9vh 1.2vh 0.6vh 0.8vh;
   background-color: #2a49bd;
   color: white;
 }
@@ -466,13 +469,13 @@
   color: white;
   text-align: center;
   font-family:  var(--font-dm-sans);
-  font-size: 13px;
-  margin: 10px;
+  font-size: 1.6vh;
+  margin: 1.2vh;
 }
 
 .botIcon{
-  width: 30px;
-  height: 30px;
+  width: 3.7vh;
+  height: 3.7vh;
   border-radius: 50%;
   background: white;
   margin-left: 10px;
@@ -487,7 +490,7 @@
 } */
 
 .chatWindow::-webkit-scrollbar {
-  width: 10px;
+  width: 6px;
 }
 
 /* Track */
@@ -515,4 +518,11 @@
   /* width:27%; */
   margin-left:2%;
   margin-right:2%;
+}
+
+.productDesc{
+  display: flex;
+  justify-content:space-between;
+  align-items: flex-start;
+  padding: 1.2vh 0px 0.6vh;
 }

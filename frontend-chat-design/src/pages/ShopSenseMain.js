@@ -127,7 +127,7 @@ const ShopSenseMain = () => {
     else if(message === '...')
     return(
       <div style={{display: "flex"}}>
-      <div className={styles.botIcon}><img src={bot} style={{height:"21px", width:"auto"}}/></div>
+      <div className={styles.botIcon}><img src={bot} style={{height:"2.8vh", width:"auto"}}/></div>
       <div className={styles.botMessage}>
           <JumpingDotCustom />
       </div>
@@ -136,7 +136,7 @@ const ShopSenseMain = () => {
     else
     return(
       <div style={{display: "flex"}}>
-                        <div className={styles.botIcon}><img src={bot} style={{height:"21px", width:"auto"}}/></div>
+                        <div className={styles.botIcon}><img src={bot} style={{height:"2.8vh", width:"auto"}}/></div>
                         <div className={styles.botMessage}>
                           {message}
                         </div>
@@ -150,13 +150,18 @@ const ShopSenseMain = () => {
       {!expandShopSenseAI? <Tooltip title="Start your AI-powered amazon assistant!">
             {changeOverviewIcon?
               <img className={styles.showCursor} src={ShopSenseAIManIcon} 
-                style={{position:"fixed", top:"50%", right:0, height:"9%", width:"auto"}} onClick={() => setExpandShopSenseAI(true)}
+                style={{position:"fixed", top:"50%", right:0, height:"9%", width:"auto"}} onClick={() => {
+                  setChangeOverviewIcon(false)
+                  setExpandShopSenseAI(true)
+                }}
                 onMouseEnter={() => setChangeOverviewIcon(true)} 
                 on onMouseLeave={() => setChangeOverviewIcon(false)}
               />
             :
               <img className={styles.showCursor} src={ShopSenseAIIcon} 
-                style={{position:"fixed", top:"50%", right:0, height:"9%", width:"auto"}} onClick={() => setExpandShopSenseAI(true)}
+                style={{position:"fixed", top:"50%", right:0, height:"9%", width:"auto"}} onClick={() => {
+                  setExpandShopSenseAI(true)
+                }}
                 onMouseEnter={() => setChangeOverviewIcon(true)} 
                 on onMouseLeave={() => setChangeOverviewIcon(false)}
               />
@@ -173,42 +178,46 @@ const ShopSenseMain = () => {
         {!expandChatScreen && <Batches totalReviews={totalReviews} productComplaint={productComplaint} productLikeness={productLikeness}/>}
         
         <div className={styles.chatbot}>
-            <div style={{display:"flex", alignItems: "flex-end", justifyContent: "space-between"}}>
+            <div style={{display:"flex", alignItems: "center", justifyContent: "space-between", padding:"0.85vh 5.5vh"}}>
               <div className={styles.chatbotTitle}>Ask your Doubts</div>
               {
                 expandChatScreen?
                   <ExpandMoreIcon 
                     className={styles.showCursor} 
-                    style={{color: "#ffffff", marginRight:"30px", fontSize:"27px"}}
+                    style={{color: "#ffffff", fontSize:"27px"}}
                     onClick={()=>setExpandChatScreen(false)}
                   />
                   :
                   <ExpandLessIcon 
                     className={styles.showCursor} 
-                    style={{color: "#ffffff", marginRight:"30px", fontSize:"27px"}}
+                    style={{color: "#ffffff", fontSize:"27px"}}
                     onClick={()=>setExpandChatScreen(true)}
                   />
 
               }
             </div>
-            <Divider color={"white"} style={{margin:"5px 10px"}}/>
+            <Divider color={"white"} style={{margin:"0 1.4vh"}}/>
             <div style={{flexGrow:1, display:"flex", flexDirection:"column", position: "relative"}}>
                 <div className={styles.chatWindow} style={{height:"80%", overflowY: "scroll", position: "absolute", width:"100%"}}>
                     <div className={styles.chatTime}>{today[new Date().getDay()]}, {moment(new Date()).format("hh:mm A")}</div>
                     {conversationHtml}
                     <AlwaysScrollToBottom />
                 </div>
-                <div style={{height:"20%", marginTop:"auto", display:"flex", justifyContent:"space-evenly", alignItems:"center"}}>
+                <div style={{height:"20%", marginTop:"auto", display:"flex", justifyContent:"space-evenly", alignItems:"center", padding:"0.3vh 0"}}>
                     <input 
                       className={styles.chatInput} 
                       placeholder={"Type a message..."} 
                       value={chatQuestion} 
                       onChange={(e) => {
+                        console.log(e)
                         if(!expandChatScreen)
                           setExpandChatScreen(true)
                         setChatQuestion(e.target.value)
-                      }
-                      }
+                      }}
+                      onKeyDown={(e) => {
+                        if(e.key === 'Enter')
+                          fetchChatAnswer()
+                      }}
                     />
                     <div className={styles.chatSubmit}>
                       <ArrowForwardIcon style={{color: "white"}} onClick={()=>{
