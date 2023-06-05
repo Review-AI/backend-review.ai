@@ -3,7 +3,7 @@ chrome.runtime.onMessage.addListener(async (message, sender, sendResponse) => {
       let amazonURL = window.location.href
       let asinID = amazonURL.match("(?:[/dp/]|$)([A-Z0-9]{10})")
       if(amazonURL.includes("amazon") && asinID){
-        document.body.style.overflowX = 'hidden';
+        // document.body.style.overflowX = 'hidden';
         var e=document.getElementById("shopsense-container");
         if(e!==null) e.remove();
         const modal = document.createElement('div');
