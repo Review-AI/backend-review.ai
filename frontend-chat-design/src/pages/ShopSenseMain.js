@@ -219,7 +219,7 @@ const ShopSenseMain = () => {
           }}
         >
           <Header setExpandShopSenseAI={setExpandShopSenseAI} />
-          {!loading ? (
+          {loading ? (
             <LoadingComponent />
           ) : (
             <>

@@ -7,10 +7,14 @@ export default function LoadingComponent() {
     <>
       <div className={styles.linearProgress}>
         <div
-          style={{ fontFamily: 'DM Sans', fontSize: '3vh', textAlign: 'center', marginTop: '10vh' }}
+          style={{
+            fontFamily: 'DM Sans',
+            fontSize: '19px',
+            textAlign: 'center',
+            marginTop: '10vh'
+          }}
         >
-          Your shopping BFF! Chatbot to the rescue for product queries. We\'ll find your perfect
-          fit!
+          Your shopping BFF! Chatbot to the rescue for product queries. We'll find your perfect fit!
         </div>
         <LinearProgress
           sx={{
@@ -22,7 +26,7 @@ export default function LoadingComponent() {
         <div
           style={{
             fontFamily: 'DM Sans',
-            fontSize: '2.2vh',
+            fontSize: '14px',
             textAlign: 'center',
             marginTop: '4vh'
           }}
@@ -42,7 +46,7 @@ export default function LoadingComponent() {
         <CircularProgress style={{ color: 'white' }} size="1.5rem" />
         <br />
         <div
-          style={{ fontFamily: 'DM Sans', fontSize: '1.6vh', textAlign: 'center', color: 'white' }}
+          style={{ fontFamily: 'DM Sans', fontSize: '11px', textAlign: 'center', color: 'white' }}
         >
           Please Wait!
         </div>
