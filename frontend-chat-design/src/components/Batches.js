@@ -9,7 +9,14 @@ export default function Batches(props) {
   else if (totalReviews >= 1000) totalReviews = Math.floor(totalReviews / 1000).toString() + 'K';
 
   return (
-    <div style={{ display: 'flex', justifyContent: 'space-evenly', marginBottom: '6px' }}>
+    <div
+      style={{
+        display: 'flex',
+        justifyContent: 'space-evenly',
+        marginBottom: '0.9vh',
+        marginTop: '0.8vh'
+      }}
+    >
       <CircularProgressCustom
         progressPercent={Math.floor(totalReviewsPercent)}
         progressTitle={'Total Reviews'}
