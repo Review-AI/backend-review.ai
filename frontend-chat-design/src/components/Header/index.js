@@ -4,11 +4,11 @@ import './header.css';
 
 export default function Header(props) {
   return (
-    <div className={'iphone1420Item'}>
+    <div className={'header'}>
       <div>
         <ArrowForwardIosIcon
           className={'showCursor'}
-          style={{ color: 'white' }}
+          style={{ color: 'white', fontSize: '3.35vh' }}
           onClick={() => props.setExpandShopSenseAI(false)}
         />
       </div>
@@ -20,12 +20,8 @@ export default function Header(props) {
           justifyContent: 'space-around'
         }}
       >
-        <img className={'image23Icon'} alt="" src="/image-23@2x.png" />
-        <img
-          className={'screenshot20230511At103'}
-          alt=""
-          src="/screenshot-20230511-at-103-1@2x.png"
-        />
+        <img className={'shopsenseLogoIcon'} alt="" src="/image-23@2x.png" />
+        <img className={'shopsenseTextIcon'} alt="" src="/screenshot-20230511-at-103-1@2x.png" />
       </div>
       <div className={'showCursor'}>
         <MenuItemCustom />

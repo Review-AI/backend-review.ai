@@ -55,7 +55,7 @@ export default function MenuItemCustom() {
         onClick={handleClick}
         style={{ float: 'right', padding: 0, margin: 0 }}
       >
-        <MoreVertIcon style={{ color: 'white', fontSize: '40px', padding: 0, margin: 0 }} />
+        <MoreVertIcon style={{ color: 'white', fontSize: '4.6vh', padding: 0, margin: 0 }} />
       </IconButton>
       <Menu
         id="long-menu"
