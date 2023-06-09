@@ -31,7 +31,7 @@ def get_product_description(client_id, reviews):
     # Since product description will be called first so it will not be added to llm_map
     model = create_llm_model(reviews)
     llm_map[client_id] = model
-    query = "Provide a summary of the product in not more than 40 words"
+    query = "Provide a summary of the product in not more than 50 words"
     output = model.run(query)
     return output
 
@@ -40,7 +40,8 @@ def get_chat_answer(client_id, question):
     if not model:
         return "Not found in reviews"
     output = model.run(question)
-    if output.strip() == "I don't know":
+    print(output)
+    if output.strip().strip('.') == "I don't know":
         output = "Not found in reviews"
     return output
 

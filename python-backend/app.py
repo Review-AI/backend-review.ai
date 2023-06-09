@@ -24,5 +24,6 @@ def add_cors(resp):
         resp.headers['Access-Control-Max-Age'] = '1'
     return resp
 
-app.run(host='127.0.0.1', port=5001)
+if __name__ == '__main__':
+    app.run(host='127.0.0.1', port=5001)
 
