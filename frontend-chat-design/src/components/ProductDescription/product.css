@@ -51,7 +51,7 @@ background: lightgray;
     display: flex;
     justify-content:space-between;
     align-items: flex-start;
-    padding: 1.2vh 0vh 0vh 0.9vh;
+    padding: 1.2vh 0 0 0.9vh;
     border: 1px slid red;
 }
 
@@ -69,6 +69,7 @@ background: lightgray;
 
   .summary {
     margin: 0;
+    font-size: 15px;
   }
 
   .productDescText {
@@ -77,7 +78,7 @@ background: lightgray;
     font-size: 12px;
     color: #393939;
     justify-content: center;
-    height: 31.5vh; 
+    max-height: 31.5vh; 
     overflow-y: auto;
     padding-right: 0.5vw;
   }

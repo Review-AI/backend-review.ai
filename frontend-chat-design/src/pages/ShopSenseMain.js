@@ -60,6 +60,7 @@ const ShopSenseMain = () => {
     let amazonURL = window.location.href;
     if (chrome.tabs) {
       let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+      console.log(tab.url);
       const url = await new URL(tab.url);
       amazonURL = url.href;
       console.log(amazonURL);

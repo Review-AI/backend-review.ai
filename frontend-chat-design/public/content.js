@@ -21,7 +21,10 @@ chrome.runtime.onMessage.addListener(async (message, sender, sendResponse) => {
         document.body.style.overflowX = 'hidden';
         document.body.appendChild(modal);
       });
-    } else document.body.appendChild(modal);
+    } else {
+      document.body.style.overflowX = 'hidden';
+      document.body.appendChild(modal);
+    }
     sendResponse('Extension embedding popup');
   } else {
     sendResponse('Not embedding extension as it is not amazon hosted site');
