@@ -323,7 +323,7 @@
 .chatbotTitle{
   font-family:  var(--font-dm-sans);
   font-weight: 400;
-  font-size: 2.1vh;
+  font-size: 14px;
   color: #ffffff;
   font-style: normal;
   /* margin-left: 30px; */
@@ -336,7 +336,7 @@
   font-family:  var(--font-dm-sans);
   border-radius: 12px;
   padding-left: 6px;
-  font-size: 1.9vh;
+  font-size: 12px;
   border: none;
 }
 
@@ -361,9 +361,9 @@
   border-radius: 0px 24px 24px 24px;
   padding: 1vh 1.5vh;
   font-family:  var(--font-dm-sans);
-  font-size: 2vh;
+  font-size: 12.3px;
   display: inline-block;
-  line-height: 21px;
+  line-height: 19px;
   margin-left: 0.8vh;
 }
 
@@ -373,10 +373,10 @@
   border-radius: 24px 24px 0px 24px;
   padding: 1vh 1.5vh;
   font-family:  var(--font-dm-sans);
-  font-size: 2vh;
+  font-size: 12.3px;
   display: inline-block;
   float: right;
-  line-height: 21px;
+  line-height: 19px;
   margin: 0.9vh 1.2vh 0.6vh 0.8vh;
   background-color: #2a49bd;
   color: white;
@@ -386,7 +386,7 @@
   color: white;
   text-align: center;
   font-family:  var(--font-dm-sans);
-  font-size: 1.6vh;
+  font-size: 10px;
   margin: 1.2vh;
 }
 

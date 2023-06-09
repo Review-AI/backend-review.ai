@@ -242,25 +242,27 @@ const ShopSenseMain = () => {
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'space-between',
-                    padding: '0.85vh 5.5vh'
+                    padding: '1vh 35px'
                   }}
                 >
                   <div className={styles.chatbotTitle}>Ask your Doubts</div>
                   {expandChatScreen ? (
                     <ExpandMoreIcon
                       className={styles.showCursor}
-                      style={{ color: '#ffffff', fontSize: '27px' }}
+                      style={{ color: '#ffffff', fontSize: '21px' }}
                       onClick={() => setExpandChatScreen(false)}
                     />
                   ) : (
                     <ExpandLessIcon
                       className={styles.showCursor}
-                      style={{ color: '#ffffff', fontSize: '27px' }}
+                      style={{ color: '#ffffff', fontSize: '21px' }}
                       onClick={() => setExpandChatScreen(true)}
                     />
                   )}
                 </div>
-                <Divider color={'white'} style={{ margin: '0 1.4vh' }} />
+                <div style={{ justifyContent: 'center', display: 'flex', alignItems: 'center' }}>
+                  <Divider color={'white'} style={{ width: '93%' }} />
+                </div>
                 <div
                   style={{
                     flexGrow: 1,
@@ -309,7 +311,7 @@ const ShopSenseMain = () => {
                     />
                     <div className={styles.chatSubmit}>
                       <ArrowForwardIcon
-                        style={{ color: 'white' }}
+                        style={{ color: 'white', fontSize: '3.5vh' }}
                         onClick={() => {
                           fetchChatAnswer();
                         }}

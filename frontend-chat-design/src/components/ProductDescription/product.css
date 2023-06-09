@@ -1,14 +1,14 @@
-.productDesc::-webkit-scrollbar {
+.productDescText::-webkit-scrollbar {
     width: 6px;
   }
 
-.productDesc::-webkit-scrollbar-thumb {
+.productDescText::-webkit-scrollbar-thumb {
     background: lightgray; 
     border-radius: 7.5px;
   }
   
 /* Handle on hover */
-.productDesc::-webkit-scrollbar-thumb:hover {
+.productDescText::-webkit-scrollbar-thumb:hover {
 background: lightgray; 
 }
 
@@ -51,10 +51,8 @@ background: lightgray;
     display: flex;
     justify-content:space-between;
     align-items: flex-start;
-    padding: 1.2vh 1.2vh 0vh;
+    padding: 1.2vh 0vh 0vh 0.9vh;
     border: 1px slid red;
-    height: 32vh; 
-    overflow-y: auto;
 }
 
 .productSummary {
@@ -66,7 +64,7 @@ background: lightgray;
     justify-content: center;
     flex-direction: column;
     line-height: 21px;
-    margin-left: 0.6vw;
+    margin-left: 0.5vw;
   }
 
   .summary {
@@ -79,5 +77,8 @@ background: lightgray;
     font-size: 12px;
     color: #393939;
     justify-content: center;
+    height: 31.5vh; 
+    overflow-y: auto;
+    padding-right: 0.5vw;
   }
   
