@@ -1,0 +1,35 @@
+.iphone1420Item {
+    top: 0;
+    left: 0;
+    border-radius: 0 0 var(--br-31xl) var(--br-31xl);
+    background-color: var(--color-darkslategray-200);
+    /* width: 424px; */
+    /* width: 30%; */
+    height:9%;
+    /* height: 69px; */
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+}
+
+.showCursor:hover{
+cursor: pointer;
+}
+
+.image23Icon {
+    /* margin-left: 12%; */
+    border-radius: 10px;
+    width: auto;
+    height: 6.6vh;
+    object-fit: cover;
+}
+
+.screenshot20230511At103 {
+    /* top: 11px; */
+    /*margin-left: 169px;*/
+    margin-left: 5%;
+    width: auto;
+    height: 6.6vh;
+    object-fit: cover;
+}
+  

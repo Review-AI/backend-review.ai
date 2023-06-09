@@ -1,0 +1,91 @@
+.productDesc::-webkit-scrollbar {
+    width: 6px;
+  }
+
+.productDesc::-webkit-scrollbar-thumb {
+    background: lightgray; 
+    border-radius: 7.5px;
+  }
+  
+/* Handle on hover */
+.productDesc::-webkit-scrollbar-thumb:hover {
+background: lightgray; 
+}
+
+.outerCircle {
+    /* background: #1d2b4a; */
+    background: #ffffff;
+    /*font-size: 25px;*/
+    text-align: center;
+    align-items: center;
+    width: 22vh;
+    /* width: 85%; */
+    height: 4%;
+    /* margin-left: 1%; */
+    /* margin-right: 1%; */
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border: 5.5px solid #1d2b4a; 
+    border-radius:50%;
+    display:flex;
+    justify-content: center;
+    /*padding:10px;*/
+  }
+
+  .productImg {
+    border-radius: var(--br-81xl);
+    /* width: 177px; */
+    width: "auto";
+    height: 22vh;
+    max-width: 20vh;
+    /* max-width: 154px; */
+    text-align: center;
+    /*object-fit: cover;*/
+    /*display:block;*/
+  }
+
+  .productName{
+    border-radius: 30px;
+    background-color: #1D2B4A;
+    padding: 1.4vh 1vh;
+    text-align: center;
+    margin: 2.7vh 1.2vh;
+    margin-bottom: 0.5vh;
+    width: 20vh;
+    color: white;
+    font-family: var(--font-dm-sans);
+    line-height: 21px;
+    font-size: 2.4vh;
+    font-weight: 400;
+  }
+
+.productDesc{
+    display: flex;
+    justify-content:space-between;
+    align-items: flex-start;
+    padding: 1.2vh 0px 0.6vh;
+    border: 1px slid red;
+}
+
+.summaryBestSellingContainer {
+    /* width: 25%; */
+    font-size: 2.6vh;
+    font-family: var(--font-dm-sans);
+    color: #000;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    line-height: 21px;
+  }
+
+  .summary {
+    margin: 0;
+  }
+
+  .bestSellingBottles {
+    margin: 0;
+    /* font-size: var(--font-size-mini); */
+    font-size: 1.92vh;
+    color: #393939;
+    justify-content: center;
+  }
+  

@@ -8,9 +8,30 @@ import CommentIcon from '@mui/icons-material/Comment';
 import ContactMailIcon from '@mui/icons-material/ContactMail';
 
 const options = [
-    <span style={{display:"flex"}} onClick={() => window.open('http://www.shopsense.xyz', '_blank')}><LanguageIcon style={{marginRight:"5px"}}/>Website</span>,
-    <span style={{display:"flex"}} onClick={() => window.open('https://forms.gle/9gGK1qiq4RncD2GK6', '_blank')}><CommentIcon style={{marginRight:"5px"}}/>Feedback</span>,
-    <span style={{display:"flex"}} onClick={() => window.open('mailto:team@shopsense.xyz')}><ContactMailIcon style={{marginRight:"5px"}}/>Contact Us</span>,
+  <span
+    key={1}
+    style={{ display: 'flex' }}
+    onClick={() => window.open('http://www.shopsense.xyz', '_blank')}
+  >
+    <LanguageIcon style={{ marginRight: '5px' }} />
+    Website
+  </span>,
+  <span
+    key={2}
+    style={{ display: 'flex' }}
+    onClick={() => window.open('https://forms.gle/9gGK1qiq4RncD2GK6', '_blank')}
+  >
+    <CommentIcon style={{ marginRight: '5px' }} />
+    Feedback
+  </span>,
+  <span
+    key={3}
+    style={{ display: 'flex' }}
+    onClick={() => window.open('mailto:team@shopsense.xyz')}
+  >
+    <ContactMailIcon style={{ marginRight: '5px' }} />
+    Contact Us
+  </span>
 ];
 
 export default function MenuItemCustom() {
@@ -24,7 +45,7 @@ export default function MenuItemCustom() {
   };
 
   return (
-    <div style={{ padding:0, margin:0}}>
+    <div style={{ padding: 0, margin: 0 }}>
       <IconButton
         aria-label="more"
         id="long-button"
@@ -32,22 +53,22 @@ export default function MenuItemCustom() {
         aria-expanded={open ? 'true' : undefined}
         aria-haspopup="true"
         onClick={handleClick}
-        style={{float:"right", padding:0, margin:0}}
+        style={{ float: 'right', padding: 0, margin: 0 }}
       >
-        <MoreVertIcon style={{color: "white", fontSize:"40px", padding:0, margin:0}}/>
+        <MoreVertIcon style={{ color: 'white', fontSize: '40px', padding: 0, margin: 0 }} />
       </IconButton>
       <Menu
         id="long-menu"
         MenuListProps={{
-          'aria-labelledby': 'long-button',
+          'aria-labelledby': 'long-button'
         }}
         anchorEl={anchorEl}
         open={open}
         onClose={handleClose}
         PaperProps={{
           style: {
-            width: '20ch',
-          },
+            width: '20ch'
+          }
         }}
       >
         {options.map((option) => (

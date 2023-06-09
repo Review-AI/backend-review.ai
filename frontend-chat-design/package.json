@@ -14,6 +14,7 @@
         "react": "^17.0.1",
         "react-chatbot-kit": "^2.1.2",
         "react-dom": "^17.0.1",
+        "react-error-overlay": "^6.0.11",
         "react-router-dom": "^5.2.0",
         "react-scripts": "4.0.3",
         "react-simple-chatbot": "^0.6.1",
@@ -23,10 +24,17 @@
         "start": "react-scripts start",
         "build": "set INLINE_RUNTIME_CHUNK=false&&react-scripts build",
         "test": "react-scripts test",
-        "eject": "react-scripts eject"
+        "eject": "react-scripts eject",
+        "prettify": "prettier --write",
+        "lint:eslint": "eslint .",
+        "lint:staged": "lint-staged",
+        "lint:fix": "eslint --fix",
+        "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
     },
     "eslintConfig": {
-        "root": true
+        "extends": [
+            "react-app/jest"
+        ]
     },
     "browserslist": {
         "production": [
@@ -39,5 +47,26 @@
             "last 1 firefox version",
             "last 1 safari version"
         ]
+    },
+    "lint-staged": {
+        "*.js": [
+            "npm run lint:eslint",
+            "prettier --write",
+            "git add --force"
+        ]
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "npm run lint:staged"
+        }
+    },
+    "devDependencies": {
+        "@babel/eslint-parser": "^7.16.5",
+        "eslint": "^7.32.0",
+        "eslint-config-prettier": "^8.3.0",
+        "eslint-config-react-app": "^6.0.0",
+        "eslint-plugin-prettier": "^4.0.0",
+        "husky": "^4.3.8",
+        "lint-staged": "^12.1.3"
     }
 }
