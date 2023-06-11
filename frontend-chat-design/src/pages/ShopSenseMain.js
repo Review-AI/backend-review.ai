@@ -175,11 +175,10 @@ const ShopSenseMain = () => {
       style={{
         display: 'flex',
         flexDirection: 'column',
-        height: '100vh',
         overflow: 'hidden',
-        width: '360px',
         right: 0,
-        position: 'fixed'
+        position: 'fixed',
+        zIndex: '999'
       }}
     >
       {!expandShopSenseAI ? (
@@ -215,6 +214,7 @@ const ShopSenseMain = () => {
             display: 'flex',
             flexDirection: 'column',
             height: '100vh',
+            width: '360px',
             overflow: 'hidden',
             backgroundColor: 'white'
           }}
