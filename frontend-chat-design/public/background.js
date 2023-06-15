@@ -1,62 +1,38 @@
 /* eslint-disable */
+console.log('Inside background.js');
 
-openInNewTab = (firstTab) => {
-  const { id, url } = firstTab;
-  chrome.tabs.create({ url }, function (tab) {
-    return tab;
-  });
-};
-
-chrome.tabs.onCreated.addListener((tab) => {
-  console.log('chrome on created');
-  // wait for contenscript to load
-  chrome.runtime.onMessage.addListener((isLoaded, sender, sendResponse) => {
-    if (isLoaded) {
-      (async () => {
-        await chrome.tabs.sendMessage(tab.id, 'test');
-        console.log('Chrome tab created successfully');
-      })();
-    }
-  });
+chrome.tabs.onCreated.addListener(function (tab) {
+  // Send a message to the content script of the created tab
+  chrome.tabs.sendMessage(tab.id, { message: 'showShopSenseAIIcon' });
 });
 
-chrome.tabs.onUpdated.addListener((tab) => {
-  // wait for contenscript to load
-  console.log('chrome tab updated');
-  chrome.runtime.onMessage.addListener(() => {
-    console.log('chrome tab on listener');
-    (async () => {
-      await chrome.tabs.sendMessage(tab.id, 'test');
-      console.log('Chrome tab loaded');
-    })();
-  });
+chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
+  // Check if the tab has finished loading
+  if (changeInfo.status === 'complete') {
+    // Send a message to the content script
+    chrome.tabs.sendMessage(tabId, { message: 'showShopSenseAIIcon' });
+  }
 });
 
-chrome.tabs.onReplaced.addListener((tab) => {
-  // wait for contenscript to load
-  console.log('chrome tab updated');
-  chrome.runtime.onMessage.addListener(() => {
-    console.log('chrome tab on listener');
-    (async () => {
-      await chrome.tabs.sendMessage(tab.id, 'test');
-      console.log('Chrome tab loaded');
-    })();
-  });
+// Manually inject the content script when the tab is updated and the conditions are met, ensuring consistent injection.
+chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
+  if (changeInfo.status === 'complete') {
+    chrome.scripting.executeScript({
+      target: { tabId: tabId, allFrames: true },
+      files: ['content.js']
+    });
+  }
 });
 
-chrome.tabs.onActivated.addListener((tab) => {
-  // wait for contenscript to load
-  console.log('chrome tab activated');
-  chrome.runtime.onMessage.addListener(() => {
-    console.log('chrome tab on listener');
-    (async () => {
-      await chrome.tabs.sendMessage(tab.id, 'test');
-      console.log('Chrome tab loaded');
-    })();
-  });
+chrome.tabs.onReplaced.addListener(function (addedTabId, removedTabId) {
+  // Send a message to the content script of the added tab
+  chrome.tabs.sendMessage(addedTabId, { message: 'showShopSenseAIIcon' });
 });
 
-chrome.action.onClicked.addListener((tab) => {
-  console.log('chrome action clicked');
-  openInNewTab(tab);
+chrome.tabs.onActivated.addListener(function (activeInfo) {
+  // Get the active tab
+  chrome.tabs.get(activeInfo.tabId, function (tab) {
+    // Send a message to the content script of the active tab
+    chrome.tabs.sendMessage(tab.id, { message: 'showShopSenseAIIcon' });
+  });
 });
