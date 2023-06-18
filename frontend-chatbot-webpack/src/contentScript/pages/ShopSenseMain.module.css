@@ -1,0 +1,439 @@
+.iphone1420Child {
+    position: absolute;
+    top: 300px;
+    left: 9px;
+    border-radius: 30px;
+    width: 202px;
+  }
+  
+  
+  .catchyPhraseTo {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .catchyPhraseToIntroduceWrapper {
+    position: absolute;
+    bottom: 462px;
+    left: 35px;
+    border-radius: var(--br-xs);
+    width: 53px;
+    height: 33px;
+    font-size: var(--font-size-9xl);
+    color: var(--color-gray-100);
+    font-family: var(--font-abeezee);
+  }
+  .iphone1420Inner {
+    position: absolute;
+    top: 557px;
+    left: 0;
+    border-radius: var(--br-31xl) var(--br-31xl) 0 0;
+    background-color: var(--color-darkslategray-200);
+    width: 30%;
+    height: 546px;
+  }
+  .typeAMessage {
+    position: absolute;
+    top: 11px;
+    left: 6px;
+    line-height: 20px;
+  }
+  .input {
+    position: absolute;
+    top: 1029px;
+    left: 35px;
+    border-radius: var(--br-xs);
+    background-color: var(--color-white);
+    width: 364px;
+    height: 44px;
+    font-size: var(--font-size-xl);
+    color: var(--color-gray-200);
+  }
+  .wed821Am {
+    position: absolute;
+    top: 4px;
+    left: 168px;
+    line-height: 16px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 77px;
+  }
+  .messageFromBot {
+    position: absolute;
+    top: 102px;
+    left: 0;
+    width: 413px;
+    height: 24px;
+    text-align: center;
+    font-size: var(--font-size-xs);
+  }
+  .messageChild {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 32px;
+    height: 32px;
+  }
+  .helloImReview {
+    position: absolute;
+    top: 16px;
+    left: 15px;
+    line-height: 24px;
+    display: inline-block;
+    width: 267px;
+  }
+  .message,
+  .message1,
+  .textBox {
+    position: absolute;
+    height: 104px;
+  }
+  .textBox {
+    top: 0;
+    left: 42px;
+    border-radius: 0 var(--br-5xl) var(--br-5xl) var(--br-5xl);
+    background-color: var(--color-white);
+    width: 297px;
+  }
+  .message,
+  .message1 {
+    top: 136px;
+    left: 2px;
+    width: 389px;
+    color: var(--color-darkslategray-100);
+  }
+  .message1 {
+    top: 326px;
+  }
+  .isThisBottle {
+    position: absolute;
+    top: 16px;
+    left: 15px;
+    line-height: 24px;
+    font-weight: 500;
+  }
+  .myMessage {
+    position: absolute;
+    top: 255px;
+    left: 226px;
+    border-radius: var(--br-5xl) var(--br-5xl) 0 var(--br-5xl);
+    background-color: var(--color-slateblue);
+    width: 222px;
+    height: 56px;
+    text-align: center;
+  }
+  .askYourDoubts {
+    position: absolute;
+    top: 50px;
+    left: 22px;
+    font-size: var(--font-size-5xl);
+  }
+  .child {
+    position: absolute;
+    top: 86.5px;
+    left: -24.5px;
+    border-top: 1px solid var(--color-white);
+    box-sizing: border-box;
+    width: 30%;
+    height: 1px;
+  }
+  .div,
+  .ellipseIcon,
+  .groupIcon {
+    position: absolute;
+    overflow: hidden;
+  }
+  .div {
+    top: 526px;
+    left: 15px;
+    width: 463px;
+    height: 30%;
+    font-size: var(--font-size-base);
+  }
+  .ellipseIcon,
+  .groupIcon {
+    height: 3.81%;
+    width: 8.7%;
+    top: 93.29%;
+    right: 5.18%;
+    bottom: 2.9%;
+    left: 86.13%;
+    max-width: 100%;
+    max-height: 100%;
+  }
+  .groupIcon {
+    height: 1.81%;
+    width: 4.14%;
+    top: 94.29%;
+    right: 7.45%;
+    bottom: 3.9%;
+    left: 88.41%;
+  }
+  .image13Icon{
+    /* top: 11px; */
+    /*margin-left: 169px;*/
+    margin-left: 5%;
+    width: auto;
+    height: 6.6vh;
+    object-fit: cover;
+  }
+  .image13Icon {
+    top: 3px;
+    left: 427px;
+    width: 54px;
+    height: 59px;
+  }
+  
+  .likedTheProduct,
+  .productComplaints,
+  .totalReviews {
+    position: absolute;
+    top: 491px;
+    left: 59px;
+    display: inline-block;
+    color: var(--color-mediumseagreen);
+    width: 98px;
+    height: 25px;
+  }
+  .likedTheProduct,
+  .productComplaints {
+    left: 177px;
+    color: var(--color-salmon);
+    width: 130px;
+  }
+  .productComplaints {
+    left: 320px;
+    font-size: 14px;
+    color: var(--color-darkorange);
+    width: 144px;
+    height: 20px;
+  }
+  .backgroundIcon,
+  .type1Icon {
+    position: absolute;
+    top: 408px;
+    left: 66px;
+    width: 80px;
+    height: 79px;
+  }
+  .backgroundIcon {
+    top: -5px;
+    left: 117px;
+  }
+  .div1 {
+    top: 24px;
+    left: 134px;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 46.78px;
+    height: 20.7px;
+  }
+  .div1,
+  .k,
+  .type2 {
+    position: absolute;
+  }
+  .k {
+    top: 23px;
+    left: 0;
+    font-weight: 900;
+    color: var(--color-mediumseagreen);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 46.78px;
+    height: 20.7px;
+  }
+  .type2 {
+    top: 413px;
+    left: 83px;
+    width: 192px;
+    height: 69px;
+    text-align: center;
+    color: var(--color-tomato);
+    font-family: var(--font-nunito);
+  }
+  .backgroundIcon2,
+  .div2 {
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    width: 80px;
+    height: 79px;
+  }
+  .div2 {
+    top: 24px;
+    left: 12px;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 46.78px;
+    height: 20.7px;
+  }
+  
+  .type3 {
+    top: 412px;
+    left: 347px;
+    width: 70px;
+    height: 69px;
+    color: var(--color-darkorange);
+    font-family: var(--font-nunito);
+  }
+  .borosilBottle {
+    color: black;
+    font-size: var(--font-size-xl);
+  }
+  
+  .iphone1420 {
+    position: relative;
+    background-color: var(--color-white);
+    width: 100%;
+    height: 1103px;
+    overflow: hidden;
+    text-align: left;
+    font-size: var(--font-size-mini);
+    color: var(--color-white);
+    font-family: var(--font-dm-sans);
+  }
+  
+  .batch{
+    margin-top: 0.6vh;
+    font-family: var(--font-dm-sans);
+    line-height: 14px;
+    font-size: 11px;
+    font-weight: 700;
+  }
+  
+  .chatbot{
+    /* margin-top: 21px; */
+    /* width:30%; */
+    background-color: #1d2b4a;
+    /*height: calc(100% - 129px);*/
+    border-radius: var(--br-31xl) var(--br-31xl) 0 0;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .chatbotTitle{
+    font-family:  var(--font-dm-sans);
+    font-weight: 400;
+    font-size: 14px;
+    color: #ffffff;
+    font-style: normal;
+    /* margin-left: 30px; */
+    /* margin-top: 15px; */
+  }
+  
+  .chatInput{
+    height:4.5vh;
+    width: 40vh;
+    font-family:  var(--font-dm-sans);
+    border-radius: 12px;
+    padding-left: 6px;
+    font-size: 12px;
+    border: none;
+  }
+  
+  .chatInput:focus{
+    outline-width: 0;
+  }
+  
+  .chatSubmit{
+    background: #2a49bd;
+    width: 4.2vh;
+    height: 4.2vh;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .botMessage{
+    /*height: 100px;*/
+    max-width: 36vh;
+    background: #ffffff;
+    border-radius: 0px 24px 24px 24px;
+    padding: 1vh 1.5vh;
+    font-family:  var(--font-dm-sans);
+    font-size: 12.3px;
+    display: inline-block;
+    line-height: 19px;
+    margin-left: 0.8vh;
+  }
+  
+  .userMessage{
+    /*height: 100px;*/
+    max-width: 39vh;
+    border-radius: 24px 24px 0px 24px;
+    padding: 1vh 1.5vh;
+    font-family:  var(--font-dm-sans);
+    font-size: 12.3px;
+    display: inline-block;
+    float: right;
+    line-height: 19px;
+    margin: 0.9vh 1.2vh 0.6vh 0.8vh;
+    background-color: #2a49bd;
+    color: white;
+  }
+  
+  .chatTime{
+    color: white;
+    text-align: center;
+    font-family:  var(--font-dm-sans);
+    font-size: 10px;
+    margin: 1.2vh;
+  }
+  
+  .botIcon{
+    width: 3.7vh;
+    height: 3.7vh;
+    border-radius: 50%;
+    background: white;
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* .chatWindow::-webkit-scrollbar{
+    display:none
+  
+  } */
+  
+  .chatWindow::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  /* Track */
+  /* .chatWindow::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 9px;
+  } */
+   
+  /* Handle */
+  .chatWindow::-webkit-scrollbar-thumb {
+    background: lightgray; 
+    border-radius: 7.5px;
+  }
+  
+  /* Handle on hover */
+  .chatWindow::-webkit-scrollbar-thumb:hover {
+    background: lightgray; 
+  }
+  
+  .showCursor:hover{
+    cursor: pointer;
+  }
+  
+  .linearProgress{
+    /* width:27%; */
+    margin-left:2%;
+    margin-right:2%;
+  }
+  

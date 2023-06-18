@@ -1,0 +1,59 @@
+import React from "react";
+import './popup.css'
+
+const Popup = () => {
+    return (
+<div className="popup-div">
+      <div className="popup-header">
+        <img 
+            className="popup-header-logo"
+            alt="" 
+            src="../assets/HeaderLogo.png"
+        />
+        <img
+            className="popup-header-text"
+            alt=""
+            src="../assets/HeaderLogoText.png"
+        />
+      </div>
+      <br/>
+      <br/>
+      <div className="display-text">
+        Your shopping BFF! Chatbot to the rescue for product queiries. We'll find your perfect fit!
+      </div>
+      <br/>
+      <br/>
+      <div className="popup-amazon-button">
+        <a  href = "https://www.amazon.in/" target="_blank" style={{color:"transparent"}}>
+          <button className="amazon-button display-text">
+            Open Amazon 
+            <img src="../assets/arrow-icon.png" alt="" className="arrow-icon"/>
+          </button>
+        </a>
+      </div>
+      <br/>
+      <br/>
+      <div className="display-text popup-disclaimer">
+        *This extension appears within few seconds when you land on amazon product page!
+      </div>
+      <br/>
+      <br/>
+        <div className="popup-email-div">
+          <a href="mailto:team@shopsense.xyz" target="_blank" style={{color:"transparent"}}>
+            <div className="display-text email-contact-text" >
+            <img src="../assets/email-icon.png" alt="" className="email-icon" />
+            team@shopsense.xyz</div>
+          </a>
+          </div>
+        <br/>
+        <br/>
+        <div className="popup-contact-div">
+            <img src="../assets/amazon-logo.png" alt="" className="amazon-contact-logo" />
+            <img src="../assets/openai-logo.png" alt="" className="openai-contact-logo"/>
+        </div>
+        <br/>
+    </div>
+    )
+};
+
+export default Popup;
