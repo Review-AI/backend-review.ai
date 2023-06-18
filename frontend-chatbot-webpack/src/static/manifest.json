@@ -3,6 +3,11 @@
     "description": "ShopSense AI",
     "version": "0.0.1",
     "manifest_version": 3,
+    "icons": {
+        "16" : "ShopsenseIconWhiteBg.png",
+        "48" : "ShopsenseIconWhiteBg.png",
+        "128" : "ShopsenseIconWhiteBg.png"
+    },
     "permissions": [
         "scripting",
         "activeTab",
@@ -19,7 +24,7 @@
     "content_scripts": [
         {
           "matches": ["<all_urls>"],
-          "js": ["content.js"]
+          "js": ["contentScript.js"]
         }
       ],
     "background": {
@@ -28,10 +33,10 @@
     "action":{
       "default_popup": "popup.html",
       "default_title": "Start your AI-powered amazon assistant!",
-      "default_icon": "ShopsenseIconWhiteBg.png"
+      "default_icon": "ShopsenseRoundLogo.png"
     },
     "content_security_policy": {
       "extension_pages": "script-src 'self'; object-src 'self';",
       "sandbox": "sandbox allow-scripts allow-forms allow-popups allow-modals; script-src 'self' 'unsafe-inline' 'unsafe-eval'; child-src 'self';"
     }
-  }
+}

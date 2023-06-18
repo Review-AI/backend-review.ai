@@ -1,0 +1,35 @@
+.header {
+    top: 0;
+    left: 0;
+    border-radius: 0 0 var(--br-31xl) var(--br-31xl);
+    background-color: var(--color-darkslategray-200);
+    /* width: 424px; */
+    /* width: 30%; */
+    height:7.5%;
+    /* height: 69px; */
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+}
+
+.showCursor:hover{
+cursor: pointer;
+}
+
+.shopsenseLogoIcon {
+    /* margin-left: 12%; */
+    /* border-radius: 10px; */
+    width: auto;
+    height: 5.1vh;
+    object-fit: cover;
+}
+
+.shopsenseTextIcon {
+    /* top: 11px; */
+    /*margin-left: 169px;*/
+    margin-left: 5%;
+    width: auto;
+    height: 5.5vh;
+    object-fit: cover;
+}
+  

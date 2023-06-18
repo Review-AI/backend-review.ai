@@ -1,4 +1,6 @@
 // recieve information from background script
+console.log('Inside content.js');
+
 chrome.runtime.onMessage.addListener(async (message, sender, sendResponse) => {
   let amazonURL = window.location.href;
   let asinID = amazonURL.match('(?:[/dp/]|$)([A-Z0-9]{10})');
@@ -31,7 +33,7 @@ chrome.runtime.onMessage.addListener(async (message, sender, sendResponse) => {
   }
 });
 
-(async () => {
-  // let background script know recieving end is loaded
-  await chrome.runtime.sendMessage(true);
-})();
+// (async () => {
+//   // let background script know recieving end is loaded
+//   await chrome.runtime.sendMessage(true);
+// })();
