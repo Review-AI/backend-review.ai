@@ -64,9 +64,9 @@ body{
 }
 
 .popup-disclaimer{
-    font-size: 18px;
-    padding:0 15px;
-    text-align: center
+    font-size: 14px;
+    width: 77%;
+    text-align: left;
 }
 
 .popup-email-div{

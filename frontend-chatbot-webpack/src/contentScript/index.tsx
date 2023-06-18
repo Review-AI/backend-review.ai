@@ -18,6 +18,6 @@ function init(){
 
 let amazonURL = window.location.href;
 let asinID = amazonURL.match('(?:[/dp/]|$)([A-Z0-9]{10})');
-if (amazonURL.includes('amazon') && asinID){
+if (amazonURL.includes('amazon.com') && asinID){
     init();
 }
