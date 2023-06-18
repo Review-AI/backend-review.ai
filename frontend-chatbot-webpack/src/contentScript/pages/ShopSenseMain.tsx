@@ -317,7 +317,7 @@ const ShopSenseMain = () => {
                     />
                     <div className={styles.chatSubmit}>
                       <ArrowForwardIcon
-                        style={{ color: 'white', fontSize: '3.5vh' }}
+                        style={{ color: 'white', fontSize: '22px' }}
                         onClick={() => {
                           fetchChatAnswer();
                         }}
