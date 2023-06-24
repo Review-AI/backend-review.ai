@@ -2,7 +2,7 @@ import * as React from "react";
 import './product.css';
 
 export default function ProductDescription(props) {
-  console.log(props);
+
   return (
     <div className={'productDesc'}>
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>

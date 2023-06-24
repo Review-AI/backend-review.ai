@@ -4,7 +4,7 @@ import ContentScript from './contentScript'
 import './index.css';
 
 function init(){
-    console.log("creating div element")
+    // console.log("creating div element")
     const appContainer = document.createElement('div')
     if(!appContainer){
         throw new Error("Can not find appContainer");

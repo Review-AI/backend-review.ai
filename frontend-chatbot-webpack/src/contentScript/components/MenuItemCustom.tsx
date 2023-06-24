@@ -7,38 +7,50 @@ import LanguageIcon from '@mui/icons-material/Language';
 import CommentIcon from '@mui/icons-material/Comment';
 import ContactMailIcon from '@mui/icons-material/ContactMail';
 
-const options = [
-  <span
-    key={1}
-    style={{ display: 'flex' }}
-    onClick={() => window.open('https://www.shopsense.xyz', '_blank')}
-  >
-    <LanguageIcon style={{ marginRight: '5px' }} />
-    Website
-  </span>,
-  <span
-    key={2}
-    style={{ display: 'flex' }}
-    onClick={() => window.open('https://forms.gle/9gGK1qiq4RncD2GK6', '_blank')}
-  >
-    <CommentIcon style={{ marginRight: '5px' }} />
-    Feedback
-  </span>,
-  <span
-    key={3}
-    style={{ display: 'flex' }}
-    onClick={() => window.open('mailto:team@shopsense.xyz')}
-  >
-    <ContactMailIcon style={{ marginRight: '5px' }} />
-    Contact Us
-  </span>
-];
-
-export default function MenuItemCustom() {
+export default function MenuItemCustom(props) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
+
+  const options = [
+    <span
+      key={1}
+      style={{ display: 'flex' }}
+      onClick={() => {
+        window.open('https://www.shopsense.xyz', '_blank')
+        props.trackAnalytics('Website Menu Clicked', {})
+      }}
+    >
+      <LanguageIcon style={{ marginRight: '5px' }} />
+      Website
+    </span>,
+    <span
+      key={2}
+      style={{ display: 'flex' }}
+      onClick={() => {
+        window.open('https://forms.gle/9gGK1qiq4RncD2GK6', '_blank')
+        props.trackAnalytics('Feedback Menu Clicked', {})
+      }}
+    >
+      <CommentIcon style={{ marginRight: '5px' }} />
+      Feedback
+    </span>,
+    <span
+      key={3}
+      style={{ display: 'flex' }}
+      onClick={() => {
+        window.open('mailto:team@shopsense.xyz')
+        props.trackAnalytics('Contact Menu Clicked', {})
+      }}
+    >
+      <ContactMailIcon style={{ marginRight: '5px' }} />
+      Contact Us
+    </span>
+  ];
+  
+
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
+    props.trackAnalytics('3 Dots Menu Clicked', {})
   };
   const handleClose = () => {
     setAnchorEl(null);
