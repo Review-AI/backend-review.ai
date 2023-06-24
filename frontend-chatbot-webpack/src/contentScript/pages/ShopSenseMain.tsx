@@ -3,6 +3,7 @@ import styles from './ShopSenseMain.module.css';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import moment from 'moment';
+import mixpanel from 'mixpanel-browser';
 import { v4 as uuidv4 } from 'uuid';
 import { node_base_url, python_base_url } from '../utils/Routes';
 import {ShopSenseAIIcon, ShopSenseAIManIcon, bot} from '../utils/ImagesBase64';
@@ -53,6 +54,28 @@ const ShopSenseMain = () => {
     if (!clientID && !productDesc) fetchReviews();
   }, [clientID]);
 
+  const trackAnalytics = (eventName, eventProperties) => {
+    // console.log("tracking analytics")
+    mixpanel.init('7f3fb18a02934a6e1e8999e94958acfb', { debug: false, track_pageview: true });
+    let uniqueUserID = ''
+    if(clientID)
+      uniqueUserID = clientID
+    else
+      uniqueUserID = uuidv4();
+
+    const eventNewProps = {...eventProperties}
+    eventNewProps['clientID'] = clientID
+    try{
+      eventNewProps['amazonClientName'] = document.getElementById("nav-link-accountList-nav-line-1").innerHTML
+    }
+    catch{
+      eventNewProps['amazonClientName'] = 'unknown'
+    }
+
+    mixpanel.identify(uniqueUserID)
+    mixpanel.track(eventName, eventNewProps)
+  }
+
   const fetchReviews = async () => {
     setLoading(true);
     const clientUUID = uuidv4();
@@ -60,21 +83,21 @@ const ShopSenseMain = () => {
     let amazonURL = window.location.href;
     if (chrome.tabs) {
       let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
-      console.log(tab.url);
+      // console.log(tab.url);
       const url = await new URL(tab.url);
       amazonURL = url.href;
-      console.log(amazonURL);
+      // console.log(amazonURL);
     }
 
     if (amazonURL.includes('localhost')) amazonURL = amazonLink;
 
-    console.log(amazonURL);
+    // console.log(amazonURL);
     const asinID = amazonURL.match('(?:[/dp/]|$)([A-Z0-9]{10})');
     // asinID[1]
     let region = 'US';
     try {
       let urlObj = new URL(amazonURL);
-      console.log(urlObj.host);
+      // console.log(urlObj.host);
       region = Object.keys(SupportedCountries).find(
         (key) => urlObj.host === SupportedCountries[key]['host']
       );
@@ -124,6 +147,10 @@ const ShopSenseMain = () => {
 
   const fetchChatAnswer = async () => {
     if (!chatQuestion.trim()) return;
+
+    // Track the question asked and send to the chatgpt
+    trackAnalytics('Question Asked', {'clientQuestion': chatQuestion})
+
     let question = chatQuestion;
     setChatQuestion('');
     let conv = [...conversation];
@@ -136,10 +163,10 @@ const ShopSenseMain = () => {
     });
     let answer = res.data.data;
     conv[conv.length - 1] = answer;
-    console.log(conv);
+    // console.log(conv);
     setConversation((prevOutput) => [...prevOutput]);
   };
-  console.log(conversation);
+  // console.log(conversation);
   let conversationHtml = conversation.map((message, index) => {
     if (index % 2 !== 0)
       return (
@@ -193,6 +220,7 @@ const ShopSenseMain = () => {
               onClick={() => {
                 setChangeOverviewIcon(false);
                 setExpandShopSenseAI(true);
+                trackAnalytics('Extension Opened', {})
               }}
               onMouseEnter={() => setChangeOverviewIcon(true)}
               onMouseLeave={() => setChangeOverviewIcon(false)}
@@ -204,6 +232,7 @@ const ShopSenseMain = () => {
               style={{ position: 'fixed', top: '50%', right: 0, height: '9%', width: 'auto' }}
               onClick={() => {
                 setExpandShopSenseAI(true);
+                trackAnalytics('Extension Opened', {})
               }}
               onMouseEnter={() => setChangeOverviewIcon(true)}
               onMouseLeave={() => setChangeOverviewIcon(false)}
@@ -224,7 +253,7 @@ const ShopSenseMain = () => {
             position: 'fixed'
           }}
         >
-          <Header setExpandShopSenseAI={setExpandShopSenseAI} />
+          <Header setExpandShopSenseAI={setExpandShopSenseAI} trackAnalytics={trackAnalytics} />
           {loading ? (
             <LoadingComponent />
           ) : (
@@ -307,7 +336,6 @@ const ShopSenseMain = () => {
                       placeholder={'Type a message...'}
                       value={chatQuestion}
                       onChange={(e) => {
-                        console.log(e);
                         if (!expandChatScreen) setExpandChatScreen(true);
                         setChatQuestion(e.target.value);
                       }}

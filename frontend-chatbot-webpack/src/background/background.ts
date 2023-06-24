@@ -1,5 +1,5 @@
 /* eslint-disable */
-console.log('Inside background.js');
+// console.log('Inside background.js');
 
 chrome.tabs.onCreated.addListener(function (tab) {
   // Send a message to the content script of the created tab

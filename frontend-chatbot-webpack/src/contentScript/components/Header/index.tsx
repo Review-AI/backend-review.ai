@@ -11,7 +11,10 @@ export default function Header(props) {
         <ArrowForwardIosIcon
           className={'showCursor'}
           style={{ color: 'white', fontSize: '3.35vh' }}
-          onClick={() => props.setExpandShopSenseAI(false)}
+          onClick={() => {
+            props.setExpandShopSenseAI(false)
+            props.trackAnalytics('Extension Closed', {})
+          }}
         />
       </div>
       <div
@@ -26,7 +29,7 @@ export default function Header(props) {
         <img className={'shopsenseTextIcon'} alt="" src={HeaderLogoText} />
       </div>
       <div className={'showCursor'}>
-        <MenuItemCustom />
+        <MenuItemCustom trackAnalytics={props.trackAnalytics} />
       </div>
     </div>
   );
