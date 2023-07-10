@@ -8,9 +8,7 @@
         "48" : "ShopsenseIconWhiteBg.png",
         "128" : "ShopsenseIconWhiteBg.png"
     },
-    "permissions": [
-        "scripting",
-        "activeTab",
+    "permissions": [        "activeTab",
         "<all_urls>",
         "tabs",
         "http://*/*", 
