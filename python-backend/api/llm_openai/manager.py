@@ -7,7 +7,8 @@ from langchain.document_loaders import DirectoryLoader
 from langchain.docstore.document import Document
 from langchain.vectorstores import FAISS
 from langchain import PromptTemplate
-from env import openai_key
+# from env import openai_key
+openai_key = "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"
 import os 
 
 llm_map = {}
@@ -23,8 +24,9 @@ def create_llm_model(reviews):
 
     print(embeddings)
     docsearch = FAISS.from_documents(texts, embeddings)
-    qa = VectorDBQA.from_chain_type(llm=OpenAI(openai_api_key = openai_key, verbose= True), chain_type="stuff", vectorstore=docsearch)
+    qa = VectorDBQA.from_chain_type(llm=OpenAI(openai_api_key = openai_key, verbose= True,  model="gpt-3.5-turbo-instruct"), chain_type="stuff", vectorstore=docsearch)
 
+    print(qa)
     return qa
 
 def get_product_description(client_id, reviews):
@@ -46,12 +48,12 @@ def get_chat_answer(client_id, question):
     return output
 
 def get_product_details(product_name,  short_reviews):
-    llm = OpenAI(openai_api_key = openai_key, verbose= True)
+    llm = OpenAI(openai_api_key = openai_key, verbose= True, model="gpt-3.5-turbo-instruct")
 
-    name_template = "Give 2 word name for this product, 1st word to be brand and 2nd word to be product name from: {product_name}."
+    name_template = "Give one option for 2 word name without ordered/unordered list for this product, 1st word to be brand and 2nd word to be product name from: {product_name}."
     name_prompt_template = PromptTemplate(template=name_template, input_variables=["product_name"])
     short_product_name = llm(name_prompt_template.format(product_name = product_name))
-    short_product_name= short_product_name.replace("Answer:", "").strip().strip(".")
+    short_product_name= short_product_name.replace("Answer:", "").strip().strip(".").strip('"')
     print(short_product_name)
 
     batch_template = "What is the percentage of {prompt} based on reviews: {short_reviews}"
