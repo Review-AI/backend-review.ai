@@ -7,8 +7,7 @@ from langchain.document_loaders import DirectoryLoader
 from langchain.docstore.document import Document
 from langchain.vectorstores import FAISS
 from langchain import PromptTemplate
-# from env import openai_key
-openai_key = "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"
+from env import openai_key
 import os 
 
 llm_map = {}
